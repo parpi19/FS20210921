@@ -11,9 +11,9 @@
         <h1>Cliente</h1>
     </header>
     <main>
-        <form>
+        <form method="GET">
             <label for="dni"><b>DNI</b></label><br>
-            <input type="text" id="dni" name="idni"><br>
+            <input type="text" id="dni" name="idni" required><br>
 
             <label for="tienda"><b>Tienda</b></label><br>
             <select id="tienda" name="itienda" >
@@ -24,7 +24,7 @@
                 <option value="Barcelona">Barcelona</option>
                 <option value="Valencia">Valencia</option>
                 <option value="Valladoliid">Valladolid</option>
-                
+
             </select><br>
 
             <label for="nombre"><b>Nombre</b></label><br>
@@ -34,7 +34,7 @@
             <input type="text" id="apellidos" name="iapellidos"><br>
 
             <label for="email"><b>Email</b></label><br>
-            <input type="email" id="email" name="iemail"><br>
+            <input type="email" id="email" name="iemail" required placeholder="Correo Electronico"><br>
 
             <label for="direccion"><b>Dirección</b></label><br>
             <input type="text" id="direccion" name="idireccion"><br>
