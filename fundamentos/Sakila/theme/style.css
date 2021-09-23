@@ -4,6 +4,11 @@
     color: red;
 }
 
+#logoVN {
+   max-width: 100%;
+    height: auto;
+  }
+
 body > header {
     background-color: rgb(216, 216, 218);
     margin: 5px;
@@ -48,13 +53,12 @@ body > header {
 }
 
 @media screen and (max-width: 600px){
+    .logotipo {
+        width: 200px;
+    }
     .flex-container li.right, .flex-container li {
         float: none;
     }
     
 }
 
-
-#logoVN {
-    max-width: 120px;
-}
