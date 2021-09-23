@@ -1,0 +1,60 @@
+@import url(variables.css);
+
+.error-msg {
+    color: red;
+}
+
+body > header {
+    background-color: rgb(216, 216, 218);
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+.flex-container {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  
+}
+
+.flex-container li {
+    float: left;
+}
+
+
+.flex-container li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.flex-container li a:hover:not(.activo){
+    background-color: black;
+
+}
+
+.activo {
+    background-color: black;
+    
+}
+
+.flex-container li.right {
+    float: right;
+}
+
+@media screen and (max-width: 600px){
+    .flex-container li.right, .flex-container li {
+        float: none;
+    }
+    
+}
+
+
+#logoVN {
+    max-width: 120px;
+}
