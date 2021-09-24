@@ -1,11 +1,10 @@
 @import url(variables.css);
-
 .error-msg {
   color: red;
 }
 
 * {
-  font-family: 'Cabin';
+  font-family: "Cabin";
   color: black;
   box-sizing: border-box;
 }
@@ -20,28 +19,25 @@
 
 body {
   background-color: #8597fd;
-
-  > header {
-    background-color: #d8def6;
-    margin: 0;
-    padding: 0;
-  }
+}
+body > header {
+  background-color: #d8def6;
+  margin: 0;
+  padding: 0;
 }
 
 .flex-container {
   display: flex;
   background-color: #182752;
-
-  a {
-    color: white;
-    padding: 14px 20px;
-    text-decoration: none;
-    text-align: center;
-
-    &:hover:not(.activo) {
-      background-color: black;
-    }
-  }
+}
+.flex-container a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.flex-container a:hover:not(.activo) {
+  background-color: black;
 }
 
 .activo {
@@ -133,3 +129,5 @@ input[type=submit] {
     flex-direction: column;
   }
 }
+
+/*# sourceMappingURL=styles.css.map */
