@@ -94,19 +94,44 @@ body > header {
     display:grid;
     background-color: #8597fd;
     padding: 5px;
+    grid-column-gap: 20px;
     
 }
 
 .grid-item {
-    background-color: #d8def6;
+    background-color: #8597fd ;
     text-align: left;
     font-size: 20px;
     
 }
 
 .item1, .item3, .item5, .item7, .item9, .item11, .item13 {
-    background-color: #8597fd;
+    grid-column: 1;
+    text-align: right;
+    
 }
+
+.item2, .item4, .item6, .item8, .item10, .item12, .item14{
+    grid-column: 2;
+    
+    
+
+}
+
+.item15 {
+    grid-column: 2;
+    width: 10%;
+    
+}
+input[type=submit]{
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.grid-item  input{
+    width: 75%;
+} 
 
 
 @media screen and (max-width: 600px){
