@@ -10,43 +10,67 @@
 <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Cliente</h1>
+    <header class="pag-formulario_header">
+        <h1>Formulario Cliente</h1>
     </header>
     <main>
         <form method="GET">
-            <label for="dni"><b>DNI</b></label><br>
-            <input type="text" id="dni" name="idni" required><br>
-
-            <label for="tienda"><b>Tienda</b></label><br>
-            <select id="tienda" name="itienda" >
+            <div class="formulario_grid-container">
+                <div class="grid-item item1">
+                    DNI
+                </div>
+                <div class="grid-item item2">
+                    <input type="text" id="dni" name="idni" required>
+                </div>
+                <div class="grid-item item3">
+                    Tienda
+                </div>
+                <div class="grid-item item4">
+                    <select id="tienda" name="itienda" >
     
-                <option value="Málaga">Málaga</option>
-                <option value="Madrid">Madrid</option>
-                <option value="Bilbao">Bilbao</option>
-                <option value="Barcelona">Barcelona</option>
-                <option value="Valencia">Valencia</option>
-                <option value="Valladoliid">Valladolid</option>
-
-            </select><br>
-
-            <label for="nombre"><b>Nombre</b></label><br>
-            <input type="text" id="nombre" name="inombre"><br>
-
-            <label for="Apellidos"><b>Apellidos</b></label><br>
-            <input type="text" id="apellidos" name="iapellidos"><br>
-
-            <label for="email"><b>Email</b></label><br>
-            <input type="email" id="email" name="iemail" required placeholder="Correo Electronico"><br>
-
-            <label for="direccion"><b>Dirección</b></label><br>
-            <input type="text" id="direccion" name="idireccion"><br>
-
-            <label for="telefono"><b>Teléfono</b></label><br>
-            <input type="tel" id="telefono" name="itelefono" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}"><br>
-
-            <input type="submit" value="submit">
-
+                        <option value="Málaga">Málaga</option>
+                        <option value="Madrid">Madrid</option>
+                        <option value="Bilbao">Bilbao</option>
+                        <option value="Barcelona">Barcelona</option>
+                        <option value="Valencia">Valencia</option>
+                        <option value="Valladoliid">Valladolid</option>
+        
+                    </select>
+                </div>
+                <div class="grid-item item5">
+                    Nombre
+                </div>
+                <div class="grid-item item6">
+                    <input type="text" id="nombre" name="inombre">
+                </div>
+                <div class="grid-item item7">
+                    Apellidos
+                </div>
+                <div class="grid-item item8">
+                    <input type="text" id="apellidos" name="iapellidos">
+                </div>
+                <div class="grid-item item9">
+                    Email
+                </div>
+                <div class="grid-item item10">
+                    <input type="email" id="email" name="iemail" required placeholder="Correo Electronico">
+                </div>
+                <div class="grid-item item11">
+                    Dirección
+                </div>
+                <div class="grid-item item12">
+                    <input type="text" id="direccion" name="idireccion">
+                </div>
+                <div class="grid-item item13">
+                    Teléfono
+                </div>
+                <div class="grid-item item14">
+                    <input type="tel" id="telefono" name="itelefono" pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}">
+                </div>
+                <div class="grid-item item15">
+                    <input type="submit" value="submit">
+                </div>
+            </div>
         </form>
     </main>
 

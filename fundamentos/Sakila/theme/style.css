@@ -7,6 +7,7 @@
 *{
    font-family: 'Cabin'; 
    color: black;
+   box-sizing: border-box;
 }
 
 #logoVN { 
@@ -79,6 +80,34 @@ body > header {
 .articulo_imagen_pie {
     text-align: center;
 }
+
+.pag-formulario_header h1 {
+    font-size: 3em ;
+    text-align: left;
+    background-color: #465ab3;
+    margin: 0;
+    padding: 5px;
+    
+}
+
+.formulario_grid-container {
+    display:grid;
+    background-color: #8597fd;
+    padding: 5px;
+    
+}
+
+.grid-item {
+    background-color: #d8def6;
+    text-align: left;
+    font-size: 20px;
+    
+}
+
+.item1, .item3, .item5, .item7, .item9, .item11, .item13 {
+    background-color: #8597fd;
+}
+
 
 @media screen and (max-width: 600px){
     #logoVN {
