@@ -6,35 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videoclub Sakila</title>
     <link rel="stylesheet" href="theme/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
 </head>
 <body class="pag-principal">
-    <header class="header">
-        <div class="logotipo">
+    <header class="pag-principal_header">
+        <div class="pag-principal_header_logotipo">
             <img id="logoVN" src="img/viewnext-logo.png" alt="Logotipo de Viewnext"  width="200px" height="90px">
         </div>
         <nav class="menuHeader">
-            <ul class="flex-container">
-                <li><a class="activo" href="#pag-principal">Inicio</a></li>
-                <li><a href="customerform.html">Formulario cliente</a></li>
-                <li><a href="">Catalogo</a></li>
-                <li><a href="">Tiendas</a></li>
-                <li class="right"><a href="#login">Iniciar Sesión</a></li>
-            </ul>  
+            <div class="flex-container">
+                <a class="activo" href="#pag-principal">Inicio</a>
+                <a href="customerform.html">Formulario cliente</a>
+                <a href="">Catalogo</a>
+                <a href="">Tiendas</a>
+                <a href="#login">Iniciar Sesión</a>
+            </div>  
         </nav>
     </header>
     <main>
         <section>
-            <header class="header_main">
-                Ofertas
+            <header class="main_header">
+               <h1>Ofertas</h1> 
             </header>
-            <article>
+            <article class="main_articulo">
                 <figure>
                     <picture>
                         <source media="(min-width:768px)" srcset="https://picsum.photos/400?rnd=11">
                         <source media="(min-width:576px)" srcset="https://picsum.photos/300?rnd=12">
-                        <img src="https://picsum.photos/200?rnd=1" alt="Lorem ipsum dolor">
+                        <img class="articulo_imagen" src="https://picsum.photos/200?rnd=1" alt="Lorem ipsum dolor">
                     </picture>
-                    <figcaption>Lorem ipsum dolor</figcaption>
+                    <figcaption class="articulo_imagen_pie">Lorem ipsum dolor</figcaption>
                 </figure>
                 <summary>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis animi repellat, ipsum
@@ -42,7 +45,27 @@
                     soluta corporis quidem ea asperiores enim deleniti maiores?
                 </summary>
             </article>
+            <article class="main_articulo">
+                <figure>
+                    <picture>
+                        <source media="(min-width:768px)" srcset="https://picsum.photos/400?rnd=11">
+                        <source media="(min-width:576px)" srcset="https://picsum.photos/300?rnd=12">
+                        <img class="articulo_imagen" src="https://picsum.photos/100?rnd=1" alt="Lorem ipsum dolor">
+                    </picture>
+                    <figcaption class="articulo_imagen_pie">Lorem ipsum dolor</figcaption>
+                </figure>
+                <summary>
+                    Morbi libero nisi, porttitor sed finibus sit amet, dictum non dolor. Praesent sagittis turpis
+                    malesuada porta auctor. Sed varius urna vel libero volutpat porta. Etiam finibus luctus enim, quis
+                    eleifend est suscipit volutpat. Nam id eros eu velit venenatis dictum non vel lorem.
+                </summary>
+            </article>
         </section>
+        <footer>
+            <div class="pag-principal_pie">
+                <h2>Pie de Página</h2>
+            </div>
+        </footer>
     </main>
 
 </body>

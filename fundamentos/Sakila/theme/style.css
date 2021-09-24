@@ -4,41 +4,44 @@
     color: red;
 }
 
-#logoVN {
-   max-width: 100%;
+*{
+   font-family: 'Cabin'; 
+   color: black;
+}
+
+#logoVN { 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
     height: auto;
   }
-
-body > header {
-    background-color: rgb(216, 216, 218);
-    margin: 5px;
-    padding: 5px;
+body {
+    background-color: #8597fd;
     
 }
 
-.flex-container {
-    list-style-type: none;
-    margin: 0;
+body > header {
+    background-color: #d8def6;
+    margin:0;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  
+    
+}
+.flex-container {
+    display:flex;
+    background-color: #182752;
 }
 
-.flex-container li {
-    float: left;
-}
 
-
-.flex-container li a {
-    display: block;
+.flex-container a {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
+    padding: 14px 20px;
     text-decoration: none;
+    text-align: center;
 }
 
-.flex-container li a:hover:not(.activo){
+
+.flex-container a:hover:not(.activo){
     background-color: black;
 
 }
@@ -48,17 +51,45 @@ body > header {
     
 }
 
-.flex-container li.right {
-    float: right;
+
+.main_header h1 {
+    font-size: 3em ;
+    text-align: center;
+    background-color: #465ab3;
+    margin: 0;
+ }
+
+.pag-principal_pie {
+        padding: 20px;
+        text-align: center;
+        background: #465ab3;
+      }
+        
+.main_articulo {
+    padding: 20px;
+}    
+
+.articulo_imagen  {
+    display: block;
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.articulo_imagen_pie {
+    text-align: center;
 }
 
 @media screen and (max-width: 600px){
-    .logotipo {
+    #logoVN {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         width: 200px;
+       
     }
-    .flex-container li.right, .flex-container li {
-        float: none;
+    .flex-container {
+        flex-direction: column;
     }
-    
 }
 
