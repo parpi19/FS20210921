@@ -1,4 +1,4 @@
-function suma(a, b) {
+/*function suma(a, b) {
     return a + b;
 }
 function divide(a, b) {
@@ -21,4 +21,4 @@ function opera(operador) {
 }
 
 console.log(`Resultado: ${opera('/')(2, 2)}`)
-console.error('Esto es un error de ejemplo')
+console.error('Esto es un error de ejemplo')*/
