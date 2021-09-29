@@ -19,10 +19,17 @@ describe('Ejercicio 3'), () => {
         let num = 2;
         let num2 = "2";
 
-        
-        expect(esNum(numeroIntroducido)).toBeTrue;
+        expect(esNum(num)).toBeFalse;
+        expect(esNum(num2)).toBeFalse;   
     })
     
+    it('Que no sea numero', () => {
+        let num = undefined;
+        let num2 = "no es numero";
+
+        expect(esNum(num)).toBeTrue;
+        expect(esNum(num2)).toBeTrue;   
+    })
 }
 
 /*describe('Ejercicio 6', function (){

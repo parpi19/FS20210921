@@ -44,16 +44,14 @@ function adivinar(){
  // console.log(adivinar());
 
 function esNum(b) {
-    if(typeof(b)=== "number"){
-        return true;
-    }else{         
-        return false;   
-    }
+    return isNaN(b);
     
 }
+
+console.log(esNum("2"));
 function devolverArray(a) {
     let array = [];
-    if(typeof a === "number"){
+    if(isNaN(a)=== false){
         for(let contador = 0; contador < a; contador++){
             array.push(` ${contador+1}`);
         }
@@ -62,7 +60,7 @@ function devolverArray(a) {
     alert("No es un numero");
     
   }
-console.log(devolverArray(4));
+console.log(devolverArray("7"));
 
 
 function validaPalindromo(caso) {
