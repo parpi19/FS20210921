@@ -48,7 +48,7 @@ function esNum(b) {
     
 }
 
-console.log(esNum("2"));
+
 function devolverArray(a) {
     let array = [];
     if(isNaN(a)=== false){
