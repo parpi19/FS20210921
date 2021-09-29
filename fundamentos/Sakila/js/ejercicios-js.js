@@ -13,6 +13,10 @@ function compara(a,b){
         return "es menor"
     }
 
+function isNum(a) {
+    
+}
+
 }
 function adivinar(){
     let numeroAleatorio = numAleatorio(1,5);
@@ -37,8 +41,31 @@ function adivinar(){
       } while(numeroAleatorio != numeroIntroducido && contador > 0);
 
 }
+ // console.log(adivinar());
 
-    console.log(adivinar());
+function esNum(b) {
+    if(typeof(b)=== "number"){
+        return true;
+    }else{         
+        return false;   
+    }
     
+}
+function devolverArray(a) {
+    let array = [];
+    if(typeof a === "number"){
+        for(let contador = 0; contador < a; contador++){
+            array.push(` ${contador+1}`);
+        }
+          alert(array);
+    }else 
+    alert("No es un numero");
+    
+  }
+console.log(devolverArray(4));
 
 
+function validaPalindromo(caso) {
+    return true;
+    
+}
