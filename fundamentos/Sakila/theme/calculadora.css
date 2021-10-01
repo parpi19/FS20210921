@@ -2,7 +2,7 @@
     display: block; 
     margin: 25px;
     border-radius: 5%;
-    width: 25%;
+    width: 55%;
     background-color:black;
 }
 .pantalla{
@@ -23,8 +23,8 @@
 }
 
 .botones{
-    display: flex;
-    flex-flow: column nowrap;
+    display: block;
+   
     width: 100;
     
     align-items: center;

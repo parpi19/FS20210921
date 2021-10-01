@@ -9,44 +9,44 @@
   </head>
   <body>
     <div class="calculadora">
-      <output class="pantalla" id="pantalla" >0</output>
+      <output class="pantalla" id="pantalla">0</output>
       <div class="botones">
-        <div class="filas">
-          <button class="numeros" id="btn_parentesisIzd">(</button>
-          <button class="numeros" id="btn_parentesisDch">C</button>
-          <button class="numeros" id="btn_porcentaje">%</button>
-          <button class="numeros" id="btn_borrar">C</button>
+        <div>
+          <button class="" id="btn_parentesisIzd">(</button>
+          <button class="" id="btn_parentesisDch">)</button>
+          <button class="operador" id="btn_porcentaje">%</button>
+          <button class="" id="btn_borrar">C</button>
         </div>
-        <div class="filas">
+        <div>
           <button class="numeros" id="btn_siete">7</button>
           <button class="numeros" id="btn_ocho">8</button>
           <button class="numeros" id="btn_nueve">9</button>
-          <button id="btn_dividir">/</button>
+          <button class="operador" id="btn_dividir">/</button>
         </div>
-        <div class="filas">
+        <div>
           <button class="numeros" id="btn_cuatro">4</button>
           <button class="numeros" id="btn_cinco">5</button>
           <button class="numeros" id="btn_seis">6</button>
-          <button class="numeros" id="btn_multiplicar">X</button>
+          <button class="operador" id="btn_multiplicar">X</button>
         </div>
-        <div class="filas">
+        <div>
           <button class="numeros" id="btn_uno">1</button>
           <button class="numeros" id="btn_dos">2</button>
           <button class="numeros" id="btn_tres">3</button>
-          <button id="btn_resta">-</button>
+          <button class="operador" id="btn_resta">-</button>
         </div>
-        <div class="filas">
+        <div>
           <button id="btn_coma">,</button>
           <button class="numeros" id="btn_cero" value="0">0</button>
           <button id="btn_igual">=</button>
-          <button id="btn_suma">+</button>
+          <button class="operador" id="btn_suma">+</button>
         </div>
       </div>
     </div>
+
     <script src="js/calculadora.js"></script>
     <script>
       (function () {
-       
         let pantalla = document.querySelector("#pantalla");
 
         // let btn_cero = document.querySelector("#btn_cero");
@@ -69,20 +69,32 @@
         let btn_dividir = document.querySelector("#btn_dividir");
         let btn_resta = document.querySelector("#btn_resta");
         let btn_suma = document.querySelector("#btn_suma");
-       
+
         let btn_igual = document.querySelector("#btn_igual");
-        
 
         let calculo = new Calculadora();
 
-        document.querySelectorAll('.numeros').forEach(tag => {
-          tag.addEventListener('click', ev => {
+        document.querySelectorAll(".numeros").forEach((tag) => {
+          tag.addEventListener("click", (ev) => {
             calculo.ponerdigito(ev.target.textContent);
             pantalla.textContent = calculo.pantalla;
           });
         });
+
+        document.querySelectorAll(".operador").forEach((tag) => {
+          tag.addEventListener("click", (ev) => {
+            calculo.calcular(ev.target.textContent);
+            pantalla.textContent = calculo.pantalla;
+          });
+        });
+
         
-      });
+
+
+
+
+
+      })();
     </script>
   </body>
 </html>
