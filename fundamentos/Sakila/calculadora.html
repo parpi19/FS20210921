@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="theme/calculadora.css" />
+  </head>
+  <body>
+    <div class="calculadora">
+      <output class="pantalla" id="pantalla" >0</output>
+      <div class="botones">
+        <div class="filas">
+          <button class="numeros" id="btn_parentesisIzd">(</button>
+          <button class="numeros" id="btn_parentesisDch">C</button>
+          <button class="numeros" id="btn_porcentaje">%</button>
+          <button class="numeros" id="btn_borrar">C</button>
+        </div>
+        <div class="filas">
+          <button class="numeros" id="btn_siete">7</button>
+          <button class="numeros" id="btn_ocho">8</button>
+          <button class="numeros" id="btn_nueve">9</button>
+          <button id="btn_dividir">/</button>
+        </div>
+        <div class="filas">
+          <button class="numeros" id="btn_cuatro">4</button>
+          <button class="numeros" id="btn_cinco">5</button>
+          <button class="numeros" id="btn_seis">6</button>
+          <button class="numeros" id="btn_multiplicar">X</button>
+        </div>
+        <div class="filas">
+          <button class="numeros" id="btn_uno">1</button>
+          <button class="numeros" id="btn_dos">2</button>
+          <button class="numeros" id="btn_tres">3</button>
+          <button id="btn_resta">-</button>
+        </div>
+        <div class="filas">
+          <button id="btn_coma">,</button>
+          <button class="numeros" id="btn_cero" value="0">0</button>
+          <button id="btn_igual">=</button>
+          <button id="btn_suma">+</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/calculadora.js"></script>
+    <script>
+      (function () {
+       
+        let pantalla = document.querySelector("#pantalla");
+
+        // let btn_cero = document.querySelector("#btn_cero");
+        // let btn_uno = document.querySelector("#btn_uno");
+        // let btn_dos = document.querySelector("#btn_dos");
+        // let btn_tres = document.querySelector("#btn_tres");
+        // let btn_cuatro = document.querySelector("#btn_cuatro");
+        // let btn_cinco = document.querySelector("#btn_cinco");
+        // let btn_seis = document.querySelector("#btn_seis");
+        // let btn_siete = document.querySelector("#btn_siete");
+        // let btn_ocho = document.querySelector("#btn_ocho");
+        // let btn_nueve = document.querySelector("#btn_nueve");
+
+        let parentesisIzd = document.querySelector("#btn_parentesisIzd");
+        let btn_parentesisDch = document.querySelector("#btn_parentesisDch");
+        let btn_coma = document.querySelector("#btn_coma");
+
+        let btn_porcentaje = document.querySelector("#btn_porcentaje");
+        let btn_borrar = document.querySelector("#btn_borrar");
+        let btn_dividir = document.querySelector("#btn_dividir");
+        let btn_resta = document.querySelector("#btn_resta");
+        let btn_suma = document.querySelector("#btn_suma");
+       
+        let btn_igual = document.querySelector("#btn_igual");
+        
+
+        let calculo = new Calculadora();
+
+        document.querySelectorAll('.numeros').forEach(tag => {
+          tag.addEventListener('click', ev => {
+            calculo.ponerdigito(ev.target.textContent);
+            pantalla.textContent = calculo.pantalla;
+          });
+        });
+        
+      });
+    </script>
+  </body>
+</html>

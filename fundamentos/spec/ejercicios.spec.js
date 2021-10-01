@@ -1,6 +1,7 @@
 'use strict'
 
-describe('Ejercicio 1', function(){
+xdescribe('Verificacion de los ejercicios de JavaScript', () => {
+xdescribe('Ejercicio 1', function(){
     it('aleatorio', function(){
         let a = 1, b = 100;
         let resultado;
@@ -25,7 +26,7 @@ describe('Ejercicio 1', function(){
 })
 
 
-describe('Ejercicio 2: Adivina el Número', () => {
+xdescribe('Ejercicio 2: Adivina el Número', () => {
     let juego = null;
     const NUM_INTENTOS = 10;
 
@@ -86,7 +87,7 @@ describe('Ejercicio 2: Adivina el Número', () => {
 
 })
 
-describe('Ejercicio 3'), () => {
+xdescribe('Ejercicio 3'), () => {
     it('Que sea numero', () => {
         let num = 2;
         let num2 = "2";
@@ -103,6 +104,7 @@ describe('Ejercicio 3'), () => {
         expect(isNaN(num2)).toBeTrue();   
     })
 }
+})
 
 /*describe('Ejercicio 4', () => {
     it('E')

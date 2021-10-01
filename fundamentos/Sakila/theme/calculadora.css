@@ -1,0 +1,47 @@
+.calculadora{
+    display: block; 
+    margin: 25px;
+    border-radius: 5%;
+    width: 25%;
+    background-color:black;
+}
+.pantalla{
+    display: flex;
+    margin: 30px auto;
+    justify-content: right;
+    padding: 10px;
+    align-items: center;
+    font-size: 30px;
+    height: 40px;
+    width: 90%;
+    background-color: white;
+    border-style: solid;
+    border-radius: 5%;
+    
+
+    
+}
+
+.botones{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100;
+    
+    align-items: center;
+    margin-top: 30px;
+    
+}
+
+button {
+    height: 50px;
+    line-height: 48px;
+    margin: 9px;
+    width: 75px;
+    background-color: #368EE7;
+    
+}
+
+
+
+
+
