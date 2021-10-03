@@ -1,47 +1,166 @@
-.calculadora{
-    display: block; 
-    margin: 25px;
-    border-radius: 5%;
-    width: 55%;
-    background-color:black;
+.calculadora {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #245d98;
+  border-style: outset !important;
+  padding: 6px !important;
+  margin: 4px !important;
+  max-width: 100%;
+  min-width: 150px;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-.pantalla{
-    display: flex;
-    margin: 30px auto;
-    justify-content: right;
-    padding: 10px;
-    align-items: center;
-    font-size: 30px;
-    height: 40px;
-    width: 90%;
-    background-color: white;
-    border-style: solid;
-    border-radius: 5%;
-    
-
-    
+@media (min-width: 768px) {
+  .calculadora {
+    max-width: 500px;
+  }
+}
+@media (min-width: 992px) {
+  .calculadora {
+    max-width: 700px;
+  }
+}
+@media (min-width: 1200px) {
+  .calculadora {
+    max-width: 900px;
+  }
+}
+.calculadora .pantalla {
+  grid-column: 1/span 4;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+  border-style: inset !important;
+  text-align: right !important;
+  padding: 10px !important;
+}
+@media (min-width: 576px) {
+  .calculadora .pantalla {
+    font-size: 2em !important;
+  }
+}
+@media (min-width: 768px) {
+  .calculadora .pantalla {
+    font-size: 3em !important;
+  }
+}
+@media (min-width: 992px) {
+  .calculadora .pantalla {
+    font-size: 4em !important;
+  }
+}
+@media (min-width: 1200px) {
+  .calculadora .pantalla {
+    font-size: 5em !important;
+  }
+}
+.calculadora .resumen {
+  grid-column: 1/span 4;
+  text-align: right !important;
+}
+@media (min-width: 576px) {
+  .calculadora .resumen {
+    font-size: 1.7em !important;
+  }
+}
+@media (min-width: 768px) {
+  .calculadora .resumen {
+    font-size: 2.4em !important;
+  }
+}
+@media (min-width: 992px) {
+  .calculadora .resumen {
+    font-size: 3.1em !important;
+  }
+}
+@media (min-width: 1200px) {
+  .calculadora .resumen {
+    font-size: 3.8em !important;
+  }
+}
+.calculadora .numeros {
+  color: black;
+  background-color: #368EE7 !important;
+  width: 100%;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-radius: 15px;
+  background-color: #368EE7;
+}
+@media (min-width: 576px) {
+  .calculadora .numeros {
+    font-size: 1.3em !important;
+  }
+}
+@media (min-width: 768px) {
+  .calculadora .numeros {
+    font-size: 1.6em !important;
+  }
+}
+@media (min-width: 992px) {
+  .calculadora .numeros {
+    font-size: 1.9em !important;
+  }
+}
+@media (min-width: 1200px) {
+  .calculadora .numeros {
+    font-size: 2.2em !important;
+  }
+}
+.calculadora .operador, .calculadora .otros {
+  background-color: lightseagreen !important;
+  color: black;
+  width: 100%;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-radius: 15px;
+  background-color: #368EE7;
+}
+@media (min-width: 576px) {
+  .calculadora .operador, .calculadora .otros {
+    font-size: 1.3em !important;
+  }
+}
+@media (min-width: 768px) {
+  .calculadora .operador, .calculadora .otros {
+    font-size: 1.6em !important;
+  }
+}
+@media (min-width: 992px) {
+  .calculadora .operador, .calculadora .otros {
+    font-size: 1.9em !important;
+  }
+}
+@media (min-width: 1200px) {
+  .calculadora .operador, .calculadora .otros {
+    font-size: 2.2em !important;
+  }
+}
+.calculadora .btn_eq {
+  background-color: gray !important;
+  color: black;
+  width: 100%;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-radius: 15px;
+  background-color: #368EE7;
+}
+@media (min-width: 576px) {
+  .calculadora .btn_eq {
+    font-size: 1.3em !important;
+  }
+}
+@media (min-width: 768px) {
+  .calculadora .btn_eq {
+    font-size: 1.6em !important;
+  }
+}
+@media (min-width: 992px) {
+  .calculadora .btn_eq {
+    font-size: 1.9em !important;
+  }
+}
+@media (min-width: 1200px) {
+  .calculadora .btn_eq {
+    font-size: 2.2em !important;
+  }
 }
 
-.botones{
-    display: block;
-   
-    width: 100;
-    
-    align-items: center;
-    margin-top: 30px;
-    
-}
-
-button {
-    height: 50px;
-    line-height: 48px;
-    margin: 9px;
-    width: 75px;
-    background-color: #368EE7;
-    
-}
-
-
-
-
-
+/*# sourceMappingURL=calculadora.css.map */

@@ -14,6 +14,7 @@ class Calculadora {
       this.pantalla += num;
     }
     
+    
   }
 
   calcular(operacion){

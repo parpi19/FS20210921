@@ -10,38 +10,26 @@
   <body>
     <div class="calculadora">
       <output class="pantalla" id="pantalla">0</output>
-      <div class="botones">
-        <div>
-          <button class="" id="btn_parentesisIzd">(</button>
-          <button class="" id="btn_parentesisDch">)</button>
-          <button class="operador" id="btn_porcentaje">%</button>
-          <button class="" id="btn_borrar">C</button>
-        </div>
-        <div>
-          <button class="numeros" id="btn_siete">7</button>
-          <button class="numeros" id="btn_ocho">8</button>
-          <button class="numeros" id="btn_nueve">9</button>
-          <button class="operador" id="btn_dividir">/</button>
-        </div>
-        <div>
-          <button class="numeros" id="btn_cuatro">4</button>
-          <button class="numeros" id="btn_cinco">5</button>
-          <button class="numeros" id="btn_seis">6</button>
-          <button class="operador" id="btn_multiplicar">X</button>
-        </div>
-        <div>
-          <button class="numeros" id="btn_uno">1</button>
-          <button class="numeros" id="btn_dos">2</button>
-          <button class="numeros" id="btn_tres">3</button>
-          <button class="operador" id="btn_resta">-</button>
-        </div>
-        <div>
-          <button id="btn_coma">,</button>
-          <button class="numeros" id="btn_cero" value="0">0</button>
-          <button id="btn_igual">=</button>
-          <button class="operador" id="btn_suma">+</button>
-        </div>
-      </div>
+        <button class="otros" id="btn_parentesisIzd">(</button>
+        <button class="otros" id="btn_parentesisDch">)</button>
+        <button class="operador" id="btn_porcentaje">%</button>
+        <button class="otros" id="btn_borrar">C</button>
+        <button class="numeros" id="btn_siete">7</button>
+        <button class="numeros" id="btn_ocho">8</button>
+        <button class="numeros" id="btn_nueve">9</button>
+        <button class="operador" id="btn_dividir">/</button>
+        <button class="numeros" id="btn_cuatro">4</button>
+        <button class="numeros" id="btn_cinco">5</button>
+        <button class="numeros" id="btn_seis">6</button>
+        <button class="operador" id="btn_multiplicar">X</button>
+        <button class="numeros" id="btn_uno">1</button>
+        <button class="numeros" id="btn_dos">2</button>
+        <button class="numeros" id="btn_tres">3</button>
+        <button class="operador" id="btn_resta">-</button>
+        <button class="otros" id="btn_coma">,</button>
+        <button class="numeros" id="btn_cero" value="0">0</button>
+        <button class="btn_eq" id="btn_igual">=</button>
+        <button class="operador" id="btn_suma">+</button>
     </div>
 
     <script src="js/calculadora.js"></script>
@@ -87,13 +75,6 @@
             pantalla.textContent = calculo.pantalla;
           });
         });
-
-        
-
-
-
-
-
       })();
     </script>
   </body>
