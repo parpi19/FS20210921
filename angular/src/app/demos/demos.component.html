@@ -1,0 +1,51 @@
+<h1>Hola {{ Nombre | elipsis:10 | uppercase }}</h1>
+
+<p>
+  <input type="text" [(ngModel)]="Nombre" />
+  <input type="button" value="saluda" (click)="saluda()" />
+  <input type="button" value="despide" (click)="despide()" />
+  <input type="button" value="di algo" (click)="di('algo')" />
+  <input type="button" value="cambia" (click)="cambia()" />
+</p>
+
+<p [textContent]="resultado">Esto se pierde</p>
+
+<p [innerHTML]="resultado">Esto se pierde</p>
+
+<p [hidden]="!visible">Ahora me ves</p>
+<p *ngIf="visible">Ahora existe</p>
+
+<p [ngClass]="estetica">
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium eveniet
+  distinctio dolores, facere numquam, aspernatur adipisci ab velit cupiditate
+  omnis consectetur neque quisquam recusandae rem facilis similique, sunt
+  necessitatibus dolor!
+</p>
+
+<p [class.casioculto]="!visible">Ahora me ves</p>
+
+<p>Calcula 2 + 2 = {{ 2 + 2 }} = {{ calcula(2, 2) | currency: 'EUR': 'symbol': '1.2-2' }}</p>
+
+<ul>
+  <li
+    *ngFor="let item of listado; let indice = index; let fondo = odd"
+    [style.background-color]="fondo ? 'Lightblue' : 'Lavendar'"
+  >
+    {{ item.nombre }} ({{ item.id }}) [Elemento {{ indice + 1 }} de
+    {{ listado.length }}]
+  </li>
+</ul>
+
+<p>
+  <select [(ngModel)]="idProvincia">
+    <option value="">--Elige opción--</option>
+    <option *ngFor="let p of listado" [value]="p.id">{{ p.nombre }}</option>
+  </select>
+  Seleccionado: {{ idProvincia }}
+  <input type="text" value="tabarnia" #txtProvincia />
+  <input type="button" value="añadir" (click)="add(txtProvincia.value)" />
+</p>
+<my-sizer [(size)]="fontSize"></my-sizer>
+<p [style.font-size.px]="fontSize">
+  {{ listado | json }}
+</p>
