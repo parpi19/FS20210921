@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <h1>Calculadora</h1>
+		<div class="calculadora">
+      <output class="pantalla" id="pantalla" [(ngModel)]="miPantalla">0</output>
+      <button class="otros" id="btn_C" (click)="inicia()" >C</button>
+      <button class="otros" id="btn_CE">CE</button>
+      <button class="operador" id="btn_borrar" (click)="borrar()">Borrar</button>
+      <button class="operador" id="btn_dividir" (click)="calcular('/')">/</button>
+      <button class="numeros" id="btn_siete" (click)="ponerdigito('7')">7</button>
+      <button class="numeros" id="btn_ocho" (click)="ponerdigito('8')">8</button>
+      <button class="numeros" id="btn_nueve" (click)="ponerdigito('9')">9</button>
+      <button class="operador" id="btn_multiplicar" (click)="calcular('*')">X</button>
+      <button class="numeros" id="btn_cuatro" (click)="ponerdigito('4')">4</button>
+      <button class="numeros" id="btn_cinco" (click)="ponerdigito('5')">5</button>
+      <button class="numeros" id="btn_seis" (click)="ponerdigito('6')">6</button>
+      <button class="operador" id="btn_resta" (click)="calcular('-')">-</button>
+      <button class="numeros" id="btn_uno" (click)="ponerdigito('1')">1</button>
+      <button class="numeros" id="btn_dos" (click)="ponerdigito('2')">2</button>
+      <button class="numeros" id="btn_tres" (click)="ponerdigito('3')">3</button>
+      <button class="operador" id="btn_suma" (click)="calcular('+')">+</button>
+      <button class="otros" id="btn_cambiasigno" (click)="cambiaSigno()">+/-</button>
+      <button class="numeros" id="btn_cero" value="0" (click)="ponerdigito('0')">0</button>
+      <button class="otros" id="btn_coma">,</button>
+      <button class="btn_eq" id="btn_igual">=</button>
+		</div>
+  </body>
+</html>
