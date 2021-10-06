@@ -20,7 +20,7 @@ export class CalculadoraComponent implements OnInit {
     this.acumulado = 0;
     this.operador = '+';
     this.miPantalla = '0';
-    this.limpiar = true;
+    this.limpiar = false;
   }
 
   ponComa (): void {
