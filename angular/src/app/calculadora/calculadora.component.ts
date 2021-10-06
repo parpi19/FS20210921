@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculadoraComponent implements OnInit {
 
-  miPantalla: string = '0';
+  miPantalla: string = '';
   limpiar = true;
   acumulado = 0;
   operador = '+';
@@ -42,7 +42,7 @@ export class CalculadoraComponent implements OnInit {
     }
   }
 
-  calcular(operacion: string) {
+  calcular(operacion: string): void {
     if ('+-*/='.indexOf(operacion) == -1) return;
     let valor = parseFloat(this.miPantalla);
     switch (this.operador) {
@@ -69,6 +69,16 @@ export class CalculadoraComponent implements OnInit {
     if (this.limpiar) {
       this.acumulado = -this.acumulado;
     }
+  }
+
+  borraPantalla ():void{
+    this.miPantalla = '0';
+  }
+
+  borrarTodo (): void{
+    this.miPantalla = '0';
+    this.operador = '+';
+    this.limpiar = true;
   }
 
   borrar(): void {
