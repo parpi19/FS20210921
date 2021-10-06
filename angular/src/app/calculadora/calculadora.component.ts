@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggerService } from 'src/lib/my-core';
 
 @Component({
   selector: 'app-calculadora',
@@ -12,7 +13,8 @@ export class CalculadoraComponent implements OnInit {
   acumulado = 0;
   operador = '+';
 
-  constructor() {
+  constructor(private log: LoggerService) {
+    this.inicia();
 
   }
 
@@ -30,7 +32,7 @@ export class CalculadoraComponent implements OnInit {
 		} else if (this.miPantalla.indexOf('.') === -1) {
 			this.miPantalla += '.';
 		} else
-			console.warn('Ya está la coma');
+			this.log.warn('Ya está la coma');
 	};
 
   ponerdigito(numero: string): void {
