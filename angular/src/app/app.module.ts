@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { CommonServicesModule } from './common-services';
 import { NotificationComponent } from './main/notification/notification.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
 
 
 
@@ -25,7 +26,8 @@ import { FormularioComponent } from './formulario/formulario.component';
     DinamicoComponent,
     CalculadoraComponent,
     NotificationComponent,
-    FormularioComponent
+    FormularioComponent,
+    ClienteFormularioComponent
   ],
   imports: [
     BrowserModule, FormsModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { NotificacionService } from '../common-services';
+import { NotificacionService, NotificationType } from '../common-services';
 
 export interface Persona {
   id: number | null;
@@ -52,7 +52,7 @@ export class PersonasViewModel {
   }
 
   public send(){
-    this.notify.add((this.IsAdd ? 'Nuevos: ' : 'Modificados: ') + JSON.stringify(this.Elemento));
+    this.notify.add((this.IsAdd ? 'Nuevos: ' : 'Modificados: ') + JSON.stringify(this.Elemento), NotificationType.info);
   }
 
 }
