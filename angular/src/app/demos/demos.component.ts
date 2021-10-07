@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggerService } from 'src/lib/my-core';
+import { ERROR_LEVEL, LoggerService } from 'src/lib/my-core';
+import { NotificacionService } from '../common-services';
 
 @Component({
   selector: 'app-demos',
   templateUrl: './demos.component.html',
   styleUrls: ['./demos.component.scss'],
+  providers: [ LoggerService, { provide: ERROR_LEVEL, useValue: 1}]
 })
 export class DemosComponent implements OnInit {
   private nombre: string = 'mundo';
@@ -21,11 +23,8 @@ export class DemosComponent implements OnInit {
   estetica = { importante: true, error: false, urgente: true };
   fontSize = 14;
 
-  constructor(private log: LoggerService) {
-    log.error('Es un error');
-    log.warn('Es un warn');
-    log.info('Es un info');
-    log.log('Es un log');
+  constructor(public vm: NotificacionService) {
+
   }
 
   public get Nombre(): string {

@@ -12,6 +12,10 @@ import { MainModule } from './main';
 import { CommonModule } from '@angular/common';
 import { SecurityModule } from './security';
 import { environment } from 'src/environments/environment';
+import { CommonServicesModule } from './common-services';
+import { NotificationComponent } from './main/notification/notification.component';
+import { FormularioComponent } from './formulario/formulario.component';
+
 
 
 @NgModule({
@@ -20,10 +24,12 @@ import { environment } from 'src/environments/environment';
     DemosComponent,
     DinamicoComponent,
     CalculadoraComponent,
+    NotificationComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule, FormsModule,
-    AppRoutingModule, MyCoreModule, MainModule, CommonModule, SecurityModule,
+    AppRoutingModule, MyCoreModule, MainModule, CommonModule, SecurityModule, CommonServicesModule,
   ],
   providers: [
     LoggerService,
