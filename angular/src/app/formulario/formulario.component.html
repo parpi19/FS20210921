@@ -25,7 +25,7 @@
   <div>
     <label for="correo">Correo</label>
     <input type="email" id="correo" name="correo" [(ngModel)]="vm.Elemento.correo" #correo="ngModel"
-      maxlength="100">
+      maxlength="100" email>
     <output class="error" [hidden]="!correo.errors?.email">No es un correo electrónico valido. </output>
   </div>
   <div>

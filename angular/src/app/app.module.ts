@@ -16,6 +16,7 @@ import { CommonServicesModule } from './common-services';
 import { NotificationComponent } from './main/notification/notification.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
+import { CommonComponentModule } from './common-component';
 
 
 
@@ -31,7 +32,7 @@ import { ClienteFormularioComponent } from './cliente-formulario/cliente-formula
   ],
   imports: [
     BrowserModule, FormsModule,
-    AppRoutingModule, MyCoreModule, MainModule, CommonModule, SecurityModule, CommonServicesModule,
+    AppRoutingModule, MyCoreModule, MainModule, CommonModule, SecurityModule, CommonServicesModule, CommonComponentModule
   ],
   providers: [
     LoggerService,

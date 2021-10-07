@@ -5,10 +5,14 @@ import { ShowErrorsMessagesComponent } from './show-errors-messages/show-errors-
 
 
 
+
 @NgModule({
   declarations: [
     FormButtonsComponent,
     ShowErrorsMessagesComponent
+  ],
+  exports: [
+    ShowErrorsMessagesComponent, FormButtonsComponent,
   ],
   imports: [
     CommonModule
