@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-show-errors-messages',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-errors-messages.component.scss']
 })
 export class ShowErrorsMessagesComponent implements OnInit {
+
+  @Input() message: string = "";
 
   constructor() { }
 

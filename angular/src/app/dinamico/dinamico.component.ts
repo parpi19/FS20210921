@@ -13,12 +13,12 @@ import { NotificationComponent } from '../main/notification/notification.compone
 })
 export class DinamicoComponent implements OnInit {
   menu = [
-    {texto: 'ClienteFormulario', icono: '', componente: ClienteFormularioComponent },
-    {texto: 'Formulario', icono: '', componente: FormularioComponent },
-    {texto: 'Calculadora', icono: '', componente: CalculadoraComponent },
-    {texto: 'inicio', icono: '', componente: HomeComponent },
-    {texto: 'demos', icono: '', componente: DemosComponent},
-    {texto: 'notification', icono: '', componente: NotificationComponent},
+    {texto: 'ClienteFormulario', icono: 'fas fa-user-tie', componente: ClienteFormularioComponent },
+    {texto: 'Inicio', icono: 'fas fa-home', componente: HomeComponent },
+    {texto: 'Calculadora', icono: 'fas fa-calculator', componente: CalculadoraComponent },
+    {texto: 'Demos', icono: 'fas fa-desktop', componente: DemosComponent},
+    {texto: 'Formulario', icono: 'fab fa-wpforms', componente: FormularioComponent },
+    {texto: 'Notification', icono: 'far fa-bell', componente: NotificationComponent},
   ]
 
   actual = this.menu[0].componente;

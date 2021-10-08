@@ -50,12 +50,16 @@ export class ClientesViewModel {
   }
 
   public send() {
-    alert('Hola');
     this.notify.add((this.IsAdd ? 'Nuevos: ' : 'Modificados: ') + JSON.stringify(this.Elemento), NotificationType.info);
   }
 
   public cancel(){
 
+  }
+
+  public view() {
+    this.Elemento = this.Listado[0];
+    this.IsAdd = false;
   }
 }
 
@@ -65,6 +69,11 @@ export class ClientesViewModel {
   styleUrls: ['./cliente-formulario.component.scss'],
 })
 export class ClienteFormularioComponent implements OnInit {
+
+  errorObligatorio: string = "El campo es obligatorio";
+  errorEmail: string = "No es un email valido";
+  errorMinMax: string = "Debe tener entre 2 y 50 letras";
+
   constructor(public vm: ClientesViewModel) {}
 
   ngOnInit(): void {}
