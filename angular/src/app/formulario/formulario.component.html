@@ -15,7 +15,7 @@
   <div>
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" name="nombre" [(ngModel)]="vm.Elemento.nombre" #nombre="ngModel"
-      required minlength="2" maxlength="10" uppercase >
+      required minlength="2" maxlength="10" lowercase >
     <app-show-errors-messages [errors]="nombre.errors"></app-show-errors-messages>
     <!-- <output class="error" [myShowErrors]="nombre.errors"></output> -->
     <!-- <output class="error" [hidden]="!nombre.errors?.required">Es obligatorio. </output>

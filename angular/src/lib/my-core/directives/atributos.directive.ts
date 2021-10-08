@@ -22,4 +22,10 @@ export class ShowDirective {
   @Input('show') set show(value: boolean) { this.hidden = !value; }
 }
 
+
+@Directive({ selector: '[errors]' })
+export class ErrorsDirective {
+
+}
+
 export const DIRECTIVAS_ATRIBUTO = [ WindowConfirmDirective, ShowDirective, ]

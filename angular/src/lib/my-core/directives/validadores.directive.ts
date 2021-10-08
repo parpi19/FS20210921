@@ -106,4 +106,41 @@ export class EqualValidator implements Validator {
   }
 }
 
-export const MIS_VALIDADORES = [UppercaseValidator, NIFValidator, TypeValidator, EqualValidator, ]
+
+export function LowercaseValidation(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    if (!control.value) { return null; }
+    return control.value === control.value.toLowerCase() ? null : { lowercase: 'Tiene que estar en minusculas' }
+  };
+}
+
+@Directive({
+  selector: '[lowercase]',
+  providers: [{ provide: NG_VALIDATORS, useExisting: LowercaseValidator, multi: true }]
+})
+export class LowercaseValidator implements Validator {
+  validate(control: AbstractControl): ValidationErrors | null {
+    return LowercaseValidation()(control);
+  }
+}
+
+
+@Directive({
+  selector: '[greater_than][formControlName], [greater_than][formControl], [greater_than][ngModel] ',
+  providers: [{ provide: NG_VALIDATORS, useExisting: GreaterThanValidator, multi: true }]
+})
+
+export class GreaterThanValidator implements Validator{
+  validate(control: AbstractControl): ValidationErrors | null {
+
+    if(!(parseInt(control.value) <= 67 && parseInt(control.value) >= 16)){
+      throw new Error('El valor se excede ')
+    }else {}
+
+    return null;
+
+
+  }
+}
+
+export const MIS_VALIDADORES = [UppercaseValidator, NIFValidator, TypeValidator, EqualValidator, LowercaseValidator,]
