@@ -11,6 +11,7 @@ export class FormButtonsComponent implements OnInit {
   constructor() { }
 
   @Output() send: EventEmitter<any> = new EventEmitter();
+  @Output() cancel: EventEmitter<any> = new EventEmitter();
 
   ngOnInit(): void {
   }

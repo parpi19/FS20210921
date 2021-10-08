@@ -53,6 +53,10 @@ export class ClientesViewModel {
     alert('Hola');
     this.notify.add((this.IsAdd ? 'Nuevos: ' : 'Modificados: ') + JSON.stringify(this.Elemento), NotificationType.info);
   }
+
+  public cancel(){
+
+  }
 }
 
 @Component({
