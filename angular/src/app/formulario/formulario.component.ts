@@ -44,7 +44,7 @@ export class PersonasViewModel {
   }
 
   public delete(){
-
+    this.notify.add('Borrado');
   }
 
   public cancel(){
@@ -54,7 +54,6 @@ export class PersonasViewModel {
   public send(){
     this.notify.add((this.IsAdd ? 'Nuevos: ' : 'Modificados: ') + JSON.stringify(this.Elemento), NotificationType.info);
   }
-
 }
 
 @Component({

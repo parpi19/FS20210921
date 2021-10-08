@@ -1,6 +1,5 @@
-<!-- <form #miForm="ngForm"> -->
-  <div>
-    <input type="button" value="enviar" (click)="send.emit()">
-    <input type="button" value="volver" (click)="cancel.emit()">
-  </div>
-<!-- </form> -->
+<div class="btn-group" role="group">
+  <button class="btn btn-primary" *ngIf="hasSend" (click)="send.emit(null)" [disabled]="sendDisabled"><i class="fas fa-check-circle"></i> enviar</button>
+  <button class="btn btn-danger" *ngIf="hasDelete" (click)="delete.emit(null)"><i class="far fa-trash-alt"> borrar</i></button>
+  <button class="btn btn-success" *ngIf="hasCancel" (click)="cancel.emit(null)"><i class="fas fa-undo-alt"></i> volver</button>
+</div>

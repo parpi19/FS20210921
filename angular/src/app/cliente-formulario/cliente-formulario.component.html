@@ -1,8 +1,8 @@
 <form #miForm="ngForm">
   <div>
     <label for="customer_id">Código</label>
-    <input type="number" id="customer_id" name="customer_id" [(ngModel)]="vm.Elemento.customer_id" #customer_id="ngModel" placeholder="Código del usuario" required min= '0'>
-    <output class="error" [hidden]="!customer_id.hasError('required') || miForm.pristine"><app-show-errors-messages [message]="errorObligatorio"></app-show-errors-messages></output>
+    <input type="number" [class.is-invalid]="customer_id.invalid" id="customer_id" name="customer_id" [(ngModel)]="vm.Elemento.customer_id" #customer_id="ngModel" placeholder="Código del usuario" required min= '0'>
+    <app-show-errors-messages [errors]="customer_id.errors"></app-show-errors-messages>
   </div>
   <div>
     <label for="store_id">Tienda</label>
@@ -15,19 +15,17 @@
     <label for="first_name">Nombre</label>
     <input type="text" id="first_name" name="first_name" [(ngModel)]="vm.Elemento.first_name" #first_name="ngModel" required minlength="2"
         maxlength="50" data-label="Nombre">
-        <output class="error" [hidden]="!first_name.errors?.required"><app-show-errors-messages [message]="errorObligatorio"></app-show-errors-messages> </output>
-        <output class="error" [hidden]="!first_name.errors?.minlength && !first_name.errors?.maxlength"><app-show-errors-messages [message]="errorMinMax"></app-show-errors-messages> </output>
+    <app-show-errors-messages [errors]="first_name.errors"></app-show-errors-messages>
   </div>
   <div>
     <label for="last_name">Apellidos</label>
     <input type="text" id="last_name" name="last_name" [(ngModel)]="vm.Elemento.last_name" #last_name="ngModel" minlength="2" maxlength="50">
-    <output class="error" [hidden]="!last_name.errors?.minlength && !last_name.errors?.maxlength"><app-show-errors-messages [message]="errorMinMax"></app-show-errors-messages> </output>
+    <app-show-errors-messages [errors]="last_name.errors"></app-show-errors-messages>
   </div>
   <div>
     <label for="email">Correo</label>
     <input type="email" id="email" name="email" [(ngModel)]="vm.Elemento.email" #email="ngModel" required email>
-    <output class="error" [hidden]="!email.errors?.required"><app-show-errors-messages [message]="errorObligatorio"></app-show-errors-messages></output>
-    <output class="error" [hidden]="!email.errors?.email"><app-show-errors-messages [message]="errorEmail"></app-show-errors-messages> </output>
+    <app-show-errors-messages [errors]="email.errors"></app-show-errors-messages>
   </div>
   <div>
     <label for="address_id">Dirección</label>
@@ -42,11 +40,13 @@
   </div>
   <div>
     <label for="create_date">F. Creación</label>
-    <input type="date" id="create_date" name="create_date" [(ngModel)]="vm.Elemento.create_date">
+    <input type="date"  id="create_date" name="create_date" [(ngModel)]="vm.Elemento.create_date">
+    <!-- <app-show-errors-messages [errors]="create_date.errors"></app-show-errors-messages> -->
   </div>
   <div>
     <label for="last_update">Última modificacion</label>
    <input type="date" id="last_update" name="last_update" [(ngModel)]="vm.Elemento.last_update">
+   <!-- <app-show-errors-messages [errors]="last_update.errors"></app-show-errors-messages> -->
   </div>
 
 <app-form-buttons (send)="vm.send()" (cancel)="vm.cancel()"></app-form-buttons>

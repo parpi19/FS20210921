@@ -57,9 +57,22 @@ export class ClientesViewModel {
 
   }
 
+  public delete(){
+    if(!window.confirm("¿Seguro?")){
+      this.notify.add('Borrado');
+    }
+
+  }
+
   public view() {
     this.Elemento = this.Listado[0];
     this.IsAdd = false;
+  }
+
+  public edit() {
+    this.Elemento = this.Listado[0];
+    this.IsAdd = false;
+
   }
 }
 
@@ -69,10 +82,6 @@ export class ClientesViewModel {
   styleUrls: ['./cliente-formulario.component.scss'],
 })
 export class ClienteFormularioComponent implements OnInit {
-
-  errorObligatorio: string = "El campo es obligatorio";
-  errorEmail: string = "No es un email valido";
-  errorMinMax: string = "Debe tener entre 2 y 50 letras";
 
   constructor(public vm: ClientesViewModel) {}
 

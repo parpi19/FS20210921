@@ -28,7 +28,7 @@ import { CommonComponentModule } from './common-component';
     CalculadoraComponent,
     NotificationComponent,
     FormularioComponent,
-    ClienteFormularioComponent
+    ClienteFormularioComponent,
   ],
   imports: [
     BrowserModule, FormsModule,
