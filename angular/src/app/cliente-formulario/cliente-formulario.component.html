@@ -2,7 +2,8 @@
   <div>
     <label for="customer_id">Código</label>
     <input type="number" [class.is-invalid]="customer_id.invalid" id="customer_id" name="customer_id" [(ngModel)]="vm.Elemento.customer_id" #customer_id="ngModel" placeholder="Código del usuario" required min= '0'>
-    <app-show-errors-messages [errors]="customer_id.errors"></app-show-errors-messages>
+    <!-- <app-show-errors-messages [errors]="customer_id.errors"></app-show-errors-messages> -->
+    <output class="invalid-feedback" [myErrors]="customer_id.errors"></output>
   </div>
   <div>
     <label for="store_id">Tienda</label>
@@ -13,19 +14,24 @@
   </div>
   <div>
     <label for="first_name">Nombre</label>
-    <input type="text" id="first_name" name="first_name" [(ngModel)]="vm.Elemento.first_name" #first_name="ngModel" required minlength="2"
+    <input type="text" [class.is-invalid]="first_name.invalid" id="first_name" name="first_name" [(ngModel)]="vm.Elemento.first_name" #first_name="ngModel" required minlength="2"
         maxlength="50" data-label="Nombre">
-    <app-show-errors-messages [errors]="first_name.errors"></app-show-errors-messages>
+    <!-- <app-show-errors-messages [errors]="first_name.errors"></app-show-errors-messages> -->
+    <output class="invalid-feedback" [myErrors]="first_name.errors"></output>
+
   </div>
   <div>
     <label for="last_name">Apellidos</label>
-    <input type="text" id="last_name" name="last_name" [(ngModel)]="vm.Elemento.last_name" #last_name="ngModel" minlength="2" maxlength="50">
-    <app-show-errors-messages [errors]="last_name.errors"></app-show-errors-messages>
+    <input type="text" [class.is-invalid]="last_name.invalid"  id="last_name" name="last_name" [(ngModel)]="vm.Elemento.last_name" #last_name="ngModel" minlength="2" maxlength="50">
+    <!-- <app-show-errors-messages [errors]="last_name.errors"></app-show-errors-messages> -->
+    <output class="invalid-feedback" [myErrors]="last_name.errors"></output>
+
   </div>
   <div>
     <label for="email">Correo</label>
-    <input type="email" id="email" name="email" [(ngModel)]="vm.Elemento.email" #email="ngModel" required email>
-    <app-show-errors-messages [errors]="email.errors"></app-show-errors-messages>
+    <input type="email" [class.is-invalid]="email.invalid" id="email" name="email" [(ngModel)]="vm.Elemento.email" #email="ngModel" required email>
+    <!-- <app-show-errors-messages [errors]="email.errors"></app-show-errors-messages> -->
+    <output class="invalid-feedback" [myErrors]="email.errors"></output>
   </div>
   <div>
     <label for="address_id">Dirección</label>

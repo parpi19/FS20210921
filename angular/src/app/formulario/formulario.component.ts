@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { NotificacionService, NotificationType } from '../common-services';
 
 export interface Persona {
@@ -19,8 +21,8 @@ export class PersonasViewModel {
   Elemento: Persona = { id: null, nombre: '', apellidos: '', correo: null, edad: null, dni: null};
   IsAdd = true;
 
-  constructor(private notify: NotificacionService) {
-    this.add();
+  constructor(private notify: NotificacionService, private http: HttpClient) {
+
   }
 
   public list(): void{
@@ -33,9 +35,13 @@ export class PersonasViewModel {
   }
 
   public edit() {
-    this.Elemento = this.Listado[0];
-    this.IsAdd = false;
-
+    this.http.get<Persona>(`http://localhost:4321/api/personas/${this.Elemento.id}`).subscribe(
+      data => {
+        this.Elemento = data;
+        this.IsAdd = false;
+      },
+      err => this.notify.add(err.Message)
+    )
   }
 
   public view(){
@@ -52,7 +58,16 @@ export class PersonasViewModel {
   }
 
   public send(){
-    this.notify.add((this.IsAdd ? 'Nuevos: ' : 'Modificados: ') + JSON.stringify(this.Elemento), NotificationType.info);
+    let peticion:Observable <any>;
+    if (this.IsAdd)
+     peticion = this.http.post(`http://localhost:4321/api/personas/`, this.Elemento)
+    else
+      peticion = this.http.post(`http://localhost:4321/api/personas/${this.Elemento.id}`, this.Elemento)
+    peticion.subscribe(
+      data => this.notify.add('OK', NotificationType.info),
+      err => this.notify.add(err.Message)
+    )
+    // this.notify.add((this.IsAdd ? 'Nuevos: ' : 'Modificados: ') + JSON.stringify(this.Elemento), NotificationType.info);
   }
 }
 
