@@ -17,7 +17,7 @@ import { NotificationComponent } from './main/notification/notification.componen
 import { FormularioComponent } from './formulario/formulario.component';
 import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
 import { CommonComponentModule } from './common-component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,7 +31,7 @@ import { CommonComponentModule } from './common-component';
     ClienteFormularioComponent,
   ],
   imports: [
-    BrowserModule, FormsModule,
+    BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MyCoreModule, MainModule, CommonModule, SecurityModule, CommonServicesModule, CommonComponentModule
   ],
   providers: [
