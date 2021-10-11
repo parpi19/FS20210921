@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NotificacionService, NotificationType } from '../common-services';
+import { RESTDAOService } from "../base-code/RESTDAOService";
 
 export interface Persona {
   id: number | null;
@@ -14,6 +15,16 @@ export interface Persona {
 }
 
 @Injectable({providedIn: 'root'})
+export class PersonasDAO extends RESTDAOService<Persona, number> {
+
+  constructor(http: HttpClient){
+    super(http, 'personas');
+  }
+
+}
+
+
+@Injectable({providedIn: 'root'})
 export class PersonasViewModel {
   Listado: Array<Persona> = [
     { id: 1, nombre: 'Pepito', apellidos: 'Grillo', correo: 'pepito@grillo', edad: 99, dni: '12345678A'}
@@ -21,7 +32,7 @@ export class PersonasViewModel {
   Elemento: Persona = { id: null, nombre: '', apellidos: '', correo: null, edad: null, dni: null};
   IsAdd = true;
 
-  constructor(private notify: NotificacionService, private http: HttpClient) {
+  constructor(private notify: NotificacionService, private dao: PersonasDAO) {
 
   }
 
@@ -35,13 +46,17 @@ export class PersonasViewModel {
   }
 
   public edit() {
-    this.http.get<Persona>(`http://localhost:4321/api/personas/${this.Elemento.id}`).subscribe(
+    if(this.Elemento.id)
+    this.dao.get(this.Elemento.id).subscribe(
       data => {
         this.Elemento = data;
         this.IsAdd = false;
       },
       err => this.notify.add(err.Message)
     )
+
+    // this.http.get<Persona>(`http://localhost:4321/api/personas/${this.Elemento.id}`).subscribe(
+
   }
 
   public view(){
@@ -58,14 +73,17 @@ export class PersonasViewModel {
   }
 
   public send(){
-    let peticion:Observable <any>;
+    let peticion:Observable <Persona> | undefined = undefined;
     if (this.IsAdd)
-     peticion = this.http.post(`http://localhost:4321/api/personas/`, this.Elemento)
-    else
-      peticion = this.http.post(`http://localhost:4321/api/personas/${this.Elemento.id}`, this.Elemento)
-    peticion.subscribe(
-      data => this.notify.add('OK', NotificationType.info),
-      err => this.notify.add(err.Message)
+    //  peticion = this.http.post(`http://localhost:4321/api/personas/`, this.Elemento)
+    peticion = this.dao.add(this.Elemento)
+    else if(this.Elemento.id)
+      // peticion = this.http.post(`http://localhost:4321/api/personas/${this.Elemento.id}`, this.Elemento)
+      peticion = this.dao.change(this.Elemento.id, this.Elemento)
+    if(peticion)
+      peticion.subscribe(
+        data => this.notify.add('OK', NotificationType.info),
+        err => this.notify.add(err.Message)
     )
     // this.notify.add((this.IsAdd ? 'Nuevos: ' : 'Modificados: ') + JSON.stringify(this.Elemento), NotificationType.info);
   }
