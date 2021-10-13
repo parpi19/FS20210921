@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CalculadoraComponent } from '../calculadora/calculadora.component';
 import { ClienteFormularioComponent } from '../cliente-formulario/cliente-formulario.component';
+import { ContactosComponent, CONTACTOS_COMPONENTES } from '../contactos/componente.component';
 import { DemosComponent } from '../demos/demos.component';
 import { FormularioComponent } from '../formulario/formulario.component';
 import { HomeComponent } from '../main';
@@ -13,6 +14,7 @@ import { NotificationComponent } from '../main/notification/notification.compone
 })
 export class DinamicoComponent implements OnInit {
   menu = [
+    {texto: 'ContactosFormulario', icono: 'fas fa-user-tie', componente: ContactosComponent },
     {texto: 'ClienteFormulario', icono: 'fas fa-user-tie', componente: ClienteFormularioComponent },
     {texto: 'Inicio', icono: 'fas fa-home', componente: HomeComponent },
     {texto: 'Calculadora', icono: 'fas fa-calculator', componente: CalculadoraComponent },
