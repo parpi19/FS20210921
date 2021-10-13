@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { NotificacionService, NotificationType } from '../common-services';
+import { NotificationService, NotificationType } from '../common-services';
 import { RESTDAOService } from "../base-code/RESTDAOService";
 
 export interface Persona {
@@ -32,7 +32,7 @@ export class PersonasViewModel {
   Elemento: Persona = { id: null, nombre: '', apellidos: '', correo: null, edad: null, dni: null};
   IsAdd = true;
 
-  constructor(private notify: NotificacionService, private dao: PersonasDAO) {
+  constructor(private notify: NotificationService, private dao: PersonasDAO) {
 
   }
 
@@ -65,7 +65,10 @@ export class PersonasViewModel {
   }
 
   public delete(){
-    this.notify.add('Borrado');
+    if(this.Elemento.id)
+    this.dao.remove(this.Elemento.id).subscribe;
+
+    // this.notify.add('Borrado');
   }
 
   public cancel(){

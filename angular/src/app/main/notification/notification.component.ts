@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NotificacionService } from 'src/app/common-services';
+import { NotificationService } from 'src/app/common-services';
 
 @Component({
   selector: 'app-notification',
@@ -8,7 +8,7 @@ import { NotificacionService } from 'src/app/common-services';
 })
 export class NotificationComponent implements OnInit {
 
-  constructor(private vm: NotificacionService) { }
+  constructor(private vm: NotificationService) { }
 
   public get VM() {
     return this.vm;

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Unsubscribable } from 'rxjs';
 import { ERROR_LEVEL, LoggerService } from 'src/lib/my-core';
-import { NotificacionService, NotificationType } from '../common-services';
+import { NotificationService, NotificationType } from '../common-services';
 
 @Component({
   selector: 'app-demos',
@@ -26,7 +26,7 @@ export class DemosComponent implements OnInit, OnDestroy {
 
   private suscriptor: Unsubscribable | undefined;
 
-  constructor(public vm: NotificacionService) {
+  constructor(public vm: NotificationService) {
 
   }
 

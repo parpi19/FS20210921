@@ -32,7 +32,7 @@ export class Notification {
 @Injectable({
   providedIn: 'root',
 })
-export class NotificacionService {
+export class NotificationService {
   private listado: Array<Notification> = [];
   public readonly NotificationType = NotificationType;
   private notification$ = new Subject<Notification>();

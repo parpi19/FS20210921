@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { NotificacionService, NotificationType } from '../common-services';
+import { NotificationService, NotificationType } from '../common-services';
 
 export interface Cliente {
   customer_id: number | null;
@@ -30,7 +30,7 @@ export class ClientesViewModel {
   };
   IsAdd = true;
 
-  constructor(private notify: NotificacionService) {
+  constructor(private notify: NotificationService) {
     this.add();
   }
 
