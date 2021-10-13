@@ -207,9 +207,10 @@
         #avatar="ngModel"
         maxlength="500"
       />
-      <div class="invalid-feedback" [hidden]="!avatar?.errors?.maxlength">
+      <output class="invalid-feedback" [myErrors]="avatar.errors"></output>
+      <!-- <div class="invalid-feedback" [hidden]="!avatar?.errors?.maxlength">
         Debe tener menos 500 caracteres.
-      </div>
+      </div> -->
     </div>
   </div>
   <div class="form-group">

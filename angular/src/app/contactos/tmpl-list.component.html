@@ -10,14 +10,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of VM.Listado">
+    <tr
+      *ngFor="
+        let item of VM.Listado
+          | paginate: { itemsPerPage: 5, currentPage: page }
+      "
+    >
       <td>
         <div class="container">
           <div class="row">
             <div class="col-md-2">
               <img
                 class="rounded-circle float-left"
-                src="{{item.avatar}}"
+                src="{{ item.avatar }}"
                 alt="Foto de {{ item.nombre }} {{ item.apellidos }}"
                 width="75"
                 height="75"
@@ -51,5 +56,13 @@
         </div>
       </td>
     </tr>
+    <pagination-controls
+      (pageChange)="page = $event"
+      [responsive] ="true"
+      previousLabel="Anterior"
+      nextLabel="Siguiente"
+
+    >
+  </pagination-controls>
   </tbody>
 </table>

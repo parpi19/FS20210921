@@ -1,5 +1,9 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+import localeEsExtra from '@angular/common/locales/extra/es';
+registerLocaleData(localeEs, 'es', localeEsExtra);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +23,7 @@ import { ClienteFormularioComponent } from './cliente-formulario/cliente-formula
 import { CommonComponentModule } from './common-component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactosModule } from './contactos';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -33,7 +38,7 @@ import { ContactosModule } from './contactos';
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
-    AppRoutingModule, MyCoreModule, MainModule, CommonModule, SecurityModule, CommonServicesModule, CommonComponentModule, ContactosModule
+    AppRoutingModule, MyCoreModule, MainModule, CommonModule, SecurityModule, CommonServicesModule, CommonComponentModule, ContactosModule, NgxPaginationModule,
   ],
   providers: [
     LoggerService,

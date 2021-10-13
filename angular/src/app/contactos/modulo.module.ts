@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { MyCoreModule } from 'src/lib/my-core';
 import { CommonServicesModule } from '../common-services';
 import { CONTACTOS_COMPONENTES } from './componente.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -17,7 +18,7 @@ import { CONTACTOS_COMPONENTES } from './componente.component';
   ],
   imports: [
     CommonModule, FormsModule, RouterModule.forChild([]),
-    MyCoreModule, CommonServicesModule,
+    MyCoreModule, CommonServicesModule, NgxPaginationModule,
 
   ]
 })
