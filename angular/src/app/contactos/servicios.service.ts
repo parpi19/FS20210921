@@ -1,15 +1,58 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoggerService } from 'src/lib/my-core';
-import { NotificationService } from 'src/app/common-services';
-import { RESTDAOService } from '../base-code/RESTDAOService';
 
-export type ModoCRUD = 'list' | 'add' | 'edit' | 'view' | 'delete';
+import { RESTDAOService } from '../base-code/RESTDAOService';
+import { Router } from '@angular/router';
+import { AUTH_REQUIRED } from '../security';
+import { Observable } from 'rxjs';
+import { NavigationService, NotificationService } from '../common-services';
+import { ModoCRUD } from '../base-code/tipos';
+
+export class Contactos {
+  id: number = 0;
+  tratamiento: string | null = null;
+  nombre: string | null = null;
+  apellidos: string | null = null;
+  telefono: string | null = null;
+  email: string | null = null;
+  sexo: string | null = null;
+  nacimiento: string | null = null;
+  avatar: string | null = null;
+  conflictivo: boolean = false;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ContactosDAOService extends RESTDAOService<any, any> {
+  constructor(http: HttpClient) {
+    super(http, 'contactos', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
+  }
+  page(page: number, rows: number = 20): Observable<{ page: number, pages: number, rows: number, list: Array<any> }> {
+    return new Observable(subscriber => {
+      this.http.get<{ pages: number, rows: number }>(`${this.baseUrl}?_page=count&_rows=${rows}`, this.option)
+        .subscribe(
+          data => {
+            if (page >= data.pages) page = data.pages > 0 ? data.pages - 1 : 0;
+            this.http.get<Array<any>>(`${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=nombre`, this.option)
+              .subscribe(
+                lst => subscriber.next({ page, pages: data.pages, rows: data.rows, list: lst }),
+                err => subscriber.error(err)
+              )
+          },
+          err => subscriber.error(err)
+        )
+    })
+  }
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactosViewModelService {
+  protected listURL = '/contactos';
+
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
@@ -18,7 +61,9 @@ export class ContactosViewModelService {
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: ContactosDAOService
+    private navigation: NavigationService,
+    protected dao: ContactosDAOService,
+    protected router: Router
   ) {}
 
   public get Modo(): ModoCRUD {
@@ -84,10 +129,30 @@ export class ContactosViewModelService {
     this.listado = [];
   }
 
+  // page = 0;
+  // totalPages = 0;
+  // totalRows = 0;
+  // rowsPerPage = 8;
+  // load(page: number = -1) {
+  //   if(page < 0) page = this.page
+  //   this.dao.page(page, this.rowsPerPage).subscribe(
+  //     rslt => {
+  //       this.page = rslt.page;
+  //       this.totalPages = rslt.pages;
+  //       this.totalRows = rslt.rows;
+  //       this.listado = rslt.list;
+  //       this.modo = 'list';
+  //     },
+  //     err => this.notify.add(err.message)
+  //   )
+  // }
+
   public cancel(): void {
     this.elemento = {};
     this.idOriginal = null;
-    this.list();
+    // this.list();
+    this.router.navigateByUrl(this.listURL);
+
   }
 
   public send(): void {
@@ -108,15 +173,7 @@ export class ContactosViewModelService {
         break;
     }
   }
+
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ContactosDAOService extends RESTDAOService<any, any> {
-  constructor(http: HttpClient) {
-    super(http, 'contactos', {
-      // context: new HttpContext().set(AUTH_REQUIRED, true),
-    });
-  }
-}
+

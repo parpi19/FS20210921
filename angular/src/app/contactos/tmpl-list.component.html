@@ -3,19 +3,14 @@
     <tr class="table-info">
       <th class="display-4">Lista de contactos</th>
       <th class="text-end">
-        <button class="btn btn-success" (click)="VM.add()">
+        <button class="btn btn-success" routerLink="add">
           <i class="fas fa-plus"></i> Añadir
         </button>
       </th>
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="
-        let item of VM.Listado
-          | paginate: { itemsPerPage: 5, currentPage: page }
-      "
-    >
+    <tr *ngFor="let item of VM.Listado | paginate: { itemsPerPage: 5, currentPage: page}">
       <td>
         <div class="container">
           <div class="row">
@@ -29,25 +24,29 @@
               />
             </div>
             <div class="col-md-10">
-              <button
-                type="button"
+              <a
                 class="btn btn-link btn-lg px-0"
-                (click)="VM.view(item.id)"
+                routerLink="{{ item.id }}/{{ item.nombre }}-{{
+                  item.apellidos
+                }}"
               >
-                {{ item.tratamiento }} {{ item.nombre }} {{ item.apellidos }}
-              </button>
-              <br />
-              <b>Tlfn.:</b> {{ item.telefono }} <b>Correo:</b> {{ item.email }}
+                {{ item.tratamiento }} {{ item.nombre }} {{ item.apellidos }}</a
+              >
+              <br /><b>Tlfn.:</b> {{ item.telefono }} <b>Correo:</b>
+              {{ item.email }}
             </div>
           </div>
         </div>
       </td>
       <td class="align-middle text-end">
         <div class="btn-group" role="group">
-          <button class="btn btn-info" (click)="VM.view(item.id)">
+          <button
+            class="btn btn-info"
+            routerLink="{{ item.id }}/{{ item.nombre }}-{{ item.apellidos }}"
+          >
             <i class="fas fa-eye"></i>
           </button>
-          <button class="btn btn-success" (click)="VM.edit(item.id)">
+          <button class="btn btn-success" [routerLink]="[item.id, 'edit']">
             <i class="fas fa-pen"></i>
           </button>
           <button class="btn btn-danger" (click)="VM.delete(item.id)">
@@ -58,10 +57,12 @@
     </tr>
   </tbody>
 </table>
+<!-- <p-paginator [first]="VM.rowsPerPage*VM.page" [rows]="VM.rowsPerPage" [totalRecords]="VM.totalRows"
+    [pageLinkSize]="5" (onPageChange)="VM.load($event.page)"></p-paginator> -->
 <pagination-controls
-      (pageChange)="page = $event"
-      [responsive] ="true"
-      previousLabel="Anterior"
-      nextLabel="Siguiente"
-    >
-  </pagination-controls>
+  (pageChange)="page = $event"
+  [responsive]="true"
+  previousLabel="Anterior"
+  nextLabel="Siguiente"
+>
+</pagination-controls>
