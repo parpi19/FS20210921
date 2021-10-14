@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContactosAddComponent, ContactosComponent, ContactosEditComponent, ContactosListComponent, ContactosViewComponent } from './contactos/componente.component';
 import { DemosComponent } from './demos/demos.component';
+import { LibrosComponent } from './libros/componente.component';
 import { HomeComponent, PageNotFoundComponent } from './main';
 
 const routes: Routes = [
@@ -10,11 +11,14 @@ const routes: Routes = [
   { path: 'inicio', component: HomeComponent },
   { path: 'demos', component: DemosComponent },
   { path: 'chisme/de/hacer/numeros', component: CalculadoraComponent },
-  { path: 'contactos', component: ContactosListComponent },
-  { path: 'contactos/add', component: ContactosAddComponent },
-  { path: 'contactos/:id/edit', component: ContactosEditComponent },
-  { path: 'contactos/:id', component: ContactosViewComponent },
-  { path: 'contactos/:id/:kk', component: ContactosViewComponent },
+  { path: 'contactos', children: [
+    { path: '', component: ContactosListComponent},
+    { path: 'add', component: ContactosAddComponent},
+    { path: ':id/edit', component: ContactosEditComponent},
+    { path: ':id', component: ContactosViewComponent},
+    { path: ':id/:kk', component: ContactosViewComponent},
+    ]},
+
   { path: 'libros', children: [
     { path: '', component: LibrosComponent },
     { path: 'add', component: LibrosComponent },

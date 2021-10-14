@@ -12,18 +12,17 @@ import { FormsModule } from '@angular/forms';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ERROR_LEVEL, LoggerService, MyCoreModule } from 'src/lib/my-core';
-import { MainModule } from './main';
-import { CommonModule } from '@angular/common';
-import { SecurityModule } from './security';
+import { AjaxWaitInterceptor, MainModule } from './main';
 import { environment } from 'src/environments/environment';
 import { CommonServicesModule } from './common-services';
-import { NotificationComponent } from './main/notification/notification.component';
+
 import { FormularioComponent } from './formulario/formulario.component';
 import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
 import { CommonComponentModule } from './common-component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ContactosModule } from './contactos';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AuthInterceptor,  SecurityModule } from './security';
 
 
 @NgModule({
@@ -32,18 +31,20 @@ import { NgxPaginationModule } from 'ngx-pagination';
     DemosComponent,
     DinamicoComponent,
     CalculadoraComponent,
-    NotificationComponent,
     FormularioComponent,
     ClienteFormularioComponent,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
-    AppRoutingModule, MyCoreModule, MainModule, CommonModule, SecurityModule, CommonServicesModule, CommonComponentModule, ContactosModule, NgxPaginationModule,
+    AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule, CommonComponentModule, ContactosModule, NgxPaginationModule,
   ],
   providers: [
     LoggerService,
-    { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL},
-    { provide: LOCALE_ID, useValue: 'es-ES'}
+    // { provide: LoggerService, useClass: LoggerHTTPService },
+    { provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
+    { provide: LOCALE_ID, useValue: 'es-ES'},
+    { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
   ],
   bootstrap: [AppComponent]
 })

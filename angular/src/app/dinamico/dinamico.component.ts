@@ -14,7 +14,7 @@ import { NotificationComponent } from '../main/notification/notification.compone
 })
 export class DinamicoComponent implements OnInit {
   menu = [
-    {texto: 'ContactosFormulario', icono: 'fas fa-user-tie', componente: ContactosComponent },
+    {texto: 'ContactosFormulario', icono: 'fas fa-book', componente: ContactosComponent },
     {texto: 'ClienteFormulario', icono: 'fas fa-user-tie', componente: ClienteFormularioComponent },
     {texto: 'Inicio', icono: 'fas fa-home', componente: HomeComponent },
     {texto: 'Calculadora', icono: 'fas fa-calculator', componente: CalculadoraComponent },
