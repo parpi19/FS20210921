@@ -113,6 +113,7 @@ export class LibrosListComponent implements OnInit {
     this.vm.load();
   }
 }
+
 @Component({
   selector: 'app-libros-add',
   templateUrl: './tmpl-form.component.html',
@@ -125,6 +126,7 @@ export class LibrosAddComponent implements OnInit {
     this.VM.add();
   }
 }
+
 @Component({
   selector: 'app-libros-edit',
   templateUrl: './tmpl-form.component.html',
@@ -150,6 +152,7 @@ export class LibrosEditComponent implements OnInit, OnDestroy {
     this.obs$.unsubscribe();
   }
 }
+
 @Component({
   selector: 'app-libros-view',
   templateUrl: './tmpl-view.component.html',

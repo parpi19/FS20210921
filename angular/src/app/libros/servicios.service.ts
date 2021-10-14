@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { LoggerService } from 'src/lib/my-core';
 import { RESTDAOService } from '../base-code/RESTDAOService';
 import { ModoCRUD } from '../base-code/tipos';
-import { NotificationService } from '../common-services';
+import { NavigationService, NotificationService } from '../common-services';
 import { AUTH_REQUIRED } from '../security';
 
 export class Libros {
@@ -55,7 +55,7 @@ export class LibrosViewModelService {
   protected listURL = '/libros';
 
   constructor(protected notify: NotificationService,
-    protected out: LoggerService,
+    protected out: LoggerService, private navigation: NavigationService,
     protected dao: LibrosDAOService, protected router: Router) { }
 
   public get Modo(): ModoCRUD { return this.modo; }

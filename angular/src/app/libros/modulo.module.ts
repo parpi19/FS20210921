@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { MyCoreModule } from 'src/lib/my-core';
 import { CommonServicesModule } from '../common-services';
 import { LibrosComponent, LIBROS_COMPONENTES } from './componente.component';
-
+import {PaginatorModule} from 'primeng/paginator';
 import { CommonComponentModule } from '../common-component';
 
 @NgModule({
@@ -19,7 +19,7 @@ import { CommonComponentModule } from '../common-component';
   imports: [
     CommonModule, FormsModule, RouterModule.forChild([]),
     MyCoreModule, CommonServicesModule,
-    CommonComponentModule, MyCoreModule,
+    PaginatorModule, CommonComponentModule, MyCoreModule,
   ]
 })
 export class LibrosModule { }
