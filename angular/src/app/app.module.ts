@@ -24,6 +24,7 @@ import { ContactosModule } from './contactos';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthInterceptor,  SecurityModule } from './security';
 import { LibrosModule } from './libros';
+import { BlogComponent } from './blog/blog.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { LibrosModule } from './libros';
     CalculadoraComponent,
     FormularioComponent,
     ClienteFormularioComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
