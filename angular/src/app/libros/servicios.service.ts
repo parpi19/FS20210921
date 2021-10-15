@@ -10,7 +10,7 @@ import { NavigationService, NotificationService } from '../common-services';
 import { AUTH_REQUIRED } from '../security';
 
 export class Libros {
-  idLibro: string = '0';
+  idLibro: number = 0;
   titulo: string | null = null;
   autor: string | null = null;
   pais: string | null = null;
