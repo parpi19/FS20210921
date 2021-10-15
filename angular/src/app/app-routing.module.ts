@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ContactosAddComponent, ContactosComponent, ContactosEditComponent, ContactosListComponent, ContactosViewComponent } from './contactos/componente.component';
 import { DemosComponent } from './demos/demos.component';
 import { LibrosAddComponent, LibrosEditComponent, LibrosListComponent, LibrosViewComponent } from './libros/componente.component';
+import { BlogAddComponent, BlogEditComponent, BlogListComponent, BlogViewComponent } from './blog/componente.component';
 import { HomeComponent, PageNotFoundComponent } from './main';
 
 const routes: Routes = [
@@ -24,6 +26,13 @@ const routes: Routes = [
     { path: ':id/edit', component: LibrosEditComponent},
     { path: ':id', component: LibrosViewComponent},
     { path: ':id/:kk', component: LibrosViewComponent},
+    ]},
+  { path: 'blog', children: [
+    { path: '', component: BlogListComponent},
+    { path: 'add', component: BlogAddComponent},
+    { path: ':id/edit', component: BlogEditComponent},
+    { path: ':id', component: BlogViewComponent},
+    { path: ':id/:kk', component: BlogViewComponent},
     ]},
   { path: 'antonie/hasted', redirectTo: '/contactos/27'},
   { path: 'config', loadChildren: () => import('./config/config.module').then(mod => mod.ConfigModule)},
