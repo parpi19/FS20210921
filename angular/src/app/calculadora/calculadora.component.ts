@@ -94,5 +94,6 @@ export class CalculadoraComponent implements OnInit {
     } else
       this.miPantalla = this.miPantalla.substr(0, this.miPantalla.length - 1);
   }
-  ngOnInit(): void {}
+  ngOnInit(){}
+
 }
