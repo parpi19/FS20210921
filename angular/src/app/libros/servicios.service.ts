@@ -9,17 +9,16 @@ import { NavigationService, NotificationService } from '../common-services';
 import { AUTH_REQUIRED } from '../security';
 
 export class Libros {
-  id: number = 0;
-  tratamiento: string | null = null;
-  nombre: string | null = null;
-  apellidos: string | null = null;
-  telefono: string | null = null;
-  email: string | null = null;
-  sexo: string | null = null;
-  nacimiento: string | null = null;
-  avatar: string | null = null;
-  conflictivo: boolean = false;
+  idLibro: number = 0;
+  titulo: string | null = null;
+  autor: string | null = null;
+  pais: string | null = null;
+  fecha: number | null = null;
+  paginas: string | null = null;
+  wiki: string | null = null;
+
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +33,7 @@ export class LibrosDAOService extends RESTDAOService<any, any> {
         .subscribe(
           data => {
             if (page >= data.pages) page = data.pages > 0 ? data.pages - 1 : 0;
-            this.http.get<Array<any>>(`${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=nombre`, this.option)
+            this.http.get<Array<any>>(`${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=titulo`, this.option)
               .subscribe(
                 lst => subscriber.next({ page, pages: data.pages, rows: data.rows, list: lst }),
                 err => subscriber.error(err)
@@ -46,13 +45,16 @@ export class LibrosDAOService extends RESTDAOService<any, any> {
   }
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class LibrosViewModelService {
+  protected listURL = '/libros';
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
-  protected listURL = '/libros';
+
 
   constructor(protected notify: NotificationService,
     protected out: LoggerService, private navigation: NavigationService,
@@ -139,21 +141,5 @@ export class LibrosViewModelService {
     this.listado = [];
   }
 
-  page = 0;
-  totalPages = 0;
-  totalRows = 0;
-  rowsPerPage = 8;
-  load(page: number = -1) {
-    if(page < 0) page = this.page
-    this.dao.page(page, this.rowsPerPage).subscribe(
-      rslt => {
-        this.page = rslt.page;
-        this.totalPages = rslt.pages;
-        this.totalRows = rslt.rows;
-        this.listado = rslt.list;
-        this.modo = 'list';
-      },
-      err => this.notify.add(err.message)
-    )
-  }
+
 }

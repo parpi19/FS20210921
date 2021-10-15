@@ -23,6 +23,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ContactosModule } from './contactos';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AuthInterceptor,  SecurityModule } from './security';
+import { LibrosModule } from './libros';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AuthInterceptor,  SecurityModule } from './security';
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
-    AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule, CommonComponentModule, ContactosModule, NgxPaginationModule,
+    AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule, CommonComponentModule,
+    ContactosModule, NgxPaginationModule, LibrosModule,
   ],
   providers: [
     LoggerService,
