@@ -1,8 +1,9 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
+import { LoggerService } from 'src/lib/my-core';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoggerService } from 'src/lib/my-core';
+
 import { RESTDAOService } from '../base-code/RESTDAOService';
 import { ModoCRUD } from '../base-code/tipos';
 import { NavigationService, NotificationService } from '../common-services';
@@ -33,7 +34,7 @@ export class LibrosDAOService extends RESTDAOService<any, any> {
         .subscribe(
           data => {
             if (page >= data.pages) page = data.pages > 0 ? data.pages - 1 : 0;
-            this.http.get<Array<any>>(`${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=titulo`, this.option)
+            this.http.get<Array<any>>(`${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=nombre`, this.option)
               .subscribe(
                 lst => subscriber.next({ page, pages: data.pages, rows: data.rows, list: lst }),
                 err => subscriber.error(err)
@@ -70,7 +71,7 @@ export class LibrosViewModelService {
         this.listado = data;
         this.modo = 'list';
       },
-      err => this.notify.add(err.message)
+      err => this.notify.add(('err.message'))
     );
   }
 
@@ -130,7 +131,6 @@ export class LibrosViewModelService {
         );
         break;
       case 'view':
-        this.cancel();
         break;
     }
   }

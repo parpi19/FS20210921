@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { LibrosViewModelService } from '../libros/servicios.service';
 import { ContactosViewModelService } from './servicios.service';
 
 
