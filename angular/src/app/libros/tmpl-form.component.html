@@ -2,15 +2,15 @@
 <form #miForm="ngForm">
   <div class="form-row">
     <div class="form-group col-md-2">
-      <label class="form-label" for="id">Código:</label>
-      <input class="form-control" [class.is-invalid]="id.invalid && miForm.dirty" type="number" name="id" id="id"
-        [(ngModel)]="VM.Elemento.id" #id="ngModel" required min="0">
-      <output class="invalid-feedback" [myErrors]="id.errors"></output>
+      <label class="form-label" for="idLibro">Código:</label>
+      <input class="form-control" [class.is-invalid]="idLibro.invalid && miForm.dirty" type="number" name="idLibro" id="idLibro"
+        [(ngModel)]="VM.Elemento.idLibro" #idLibro="ngModel" required min="0">
+      <output class="invalid-feedback" [myErrors]="idLibro.errors"></output>
     </div>
     <div class="form-group col-md-2">
       <label class="form-label" for="titulo">Título:</label>
       <input class="form-control" name="titulo" id="titulo" [(ngModel)]="VM.Elemento.titulo"
-        #titulo="ngModel">
+        #titulo="ngModel" required>
       <output class="invalid-feedback" [myErrors]="titulo.errors"></output>
       </div>
    </div>
@@ -38,7 +38,7 @@
     <div class="form-group col-md-4">
       <label class="form-label" for="paginas">Páginas:</label>
       <input class="form-control" [class.is-invalid]="paginas.invalid" type="number" name="paginas" id="paginas"
-        [(ngModel)]="VM.Elemento.paginas" #paginas="ngModel" >
+        [(ngModel)]="VM.Elemento.paginas" #paginas="ngModel" min="1" >
       <output class="invalid-feedback" [myErrors]="paginas.errors"></output>
     </div>
   </div>

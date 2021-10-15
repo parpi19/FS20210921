@@ -12,7 +12,7 @@ export class LibrosComponent implements OnInit, OnDestroy {
   constructor(protected vm: LibrosViewModelService, protected route: ActivatedRoute) { }
   public get VM(): LibrosViewModelService { return this.vm; }
   ngOnInit(): void {
-    let id = this.route.snapshot.params['idLibro'];
+    let id = this.route.snapshot.params['id'];
     if (id) {
       if (this.route.snapshot.url.slice(-1)[0]?.path === 'edit') {
         this.vm.edit(+id);

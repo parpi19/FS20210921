@@ -10,7 +10,7 @@ import { NavigationService, NotificationService } from '../common-services';
 import { AUTH_REQUIRED } from '../security';
 
 export class Libros {
-  idLibro: number = 0;
+  idLibro: string = '0';
   titulo: string | null = null;
   autor: string | null = null;
   pais: string | null = null;
@@ -71,7 +71,7 @@ export class LibrosViewModelService {
         this.listado = data;
         this.modo = 'list';
       },
-      err => this.notify.add(('err.message'))
+      err => this.notify.add((err.message))
     );
   }
 
