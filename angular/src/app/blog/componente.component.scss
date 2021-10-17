@@ -13,9 +13,14 @@ body {
 .container-fluid {
   padding-left: 0px !important;
 }
+
+.card {
+  width: 700px !important;
+
+}
 .card-img-top{
   width: 100%;
-  height: auto;
+  height: 400px;
 }
 
 header {
@@ -26,6 +31,7 @@ header {
 
 .col-lg-6 {
   padding-left: 100px;
+  width: 65%;
 }
 
 .outer-container {
