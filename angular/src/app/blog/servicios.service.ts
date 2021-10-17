@@ -11,15 +11,12 @@ import { ModoCRUD } from '../base-code/tipos';
 
 export class Blog {
   id: number = 0;
-  tratamiento: string | null = null;
-  nombre: string | null = null;
-  apellidos: string | null = null;
-  telefono: string | null = null;
-  email: string | null = null;
-  sexo: string | null = null;
-  nacimiento: string | null = null;
-  avatar: string | null = null;
-  conflictivo: boolean = false;
+  titulo: string | null = null;
+  texto: string | null = null;
+  autor: string | null = null;
+  fecha: string | null = null;
+  fotourl: string | null = null;
+  megusta: number = 0;
 }
 
 @Injectable({
@@ -27,7 +24,7 @@ export class Blog {
 })
 export class BlogDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'contactos', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
+    super(http, 'blog', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
   page(page: number, rows: number = 20): Observable<{ page: number, pages: number, rows: number, list: Array<any> }> {
     return new Observable(subscriber => {
@@ -51,7 +48,7 @@ export class BlogDAOService extends RESTDAOService<any, any> {
   providedIn: 'root',
 })
 export class BlogViewModelService {
-  protected listURL = '/contactos';
+  protected listURL = '/blog';
 
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
