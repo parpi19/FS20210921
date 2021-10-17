@@ -1,0 +1,49 @@
+$darkblue: #204793;
+$blue: #2063a2;
+$softgray: #909bc5;
+$lightgray: #d2d3dc;
+$white: white;
+$widthDivImg: 700px;
+$widthImg: 660px;
+$heightImg: 371px;
+$auto: auto;
+
+body {
+}
+.container-fluid {
+  padding-left: 0px !important;
+}
+.card-img-top{
+  width: 100%;
+  height: auto;
+}
+
+header {
+  padding: 0;
+  width: 100%;
+  background-color: $softgray;
+}
+
+.col-lg-6 {
+  padding-left: 100px;
+}
+
+.outer-container {
+  margin-top: 10px;
+
+  .inner-container {
+    border-style: solid;
+    border-radius: 10px !important;
+    border-color: $softgray;
+    padding: 50px;
+    background-color: $lightgray !important;
+    .img-view {
+      text-align: center !important;
+      width: $widthImg ;
+      height: auto ;
+    }
+    .info-item {
+      text-align: left;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-<header class="py-5 bg-light border-bottom mb-4">
+<header class="py-5 border-bottom mb-4">
   <div class="container">
     <div class="text-center my-5">
       <h1 class="fw-bolder">Bienvenido a mi Blog</h1>
@@ -21,8 +21,6 @@
           class="card-img-top"
           src="{{ item.fotourl }}"
           alt="Imagen de {{ item.titulo }}"
-          width="auto"
-          height="auto"
         />
         <div class="card-body">
           <div class="small text-muted">
@@ -35,7 +33,7 @@
           >
             {{ item.titulo }}
           </h2>
-          <p class="card-text">{{ item.texto | elipsis:55}}</p>
+          <p class="card-text">{{ item.texto | elipsis:350}}</p>
           <a class="btn btn-primary" href="#!" [routerLink]="[item.id, 'view']"
             >Leer más</a
           >
