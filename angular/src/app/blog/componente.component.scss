@@ -1,3 +1,6 @@
+@use "sass:list";
+$sizes: 576px, 768px, 992px, 1200px;
+
 $darkblue: #204793;
 $blue: #2063a2;
 $softgray: #909bc5;
@@ -7,9 +10,14 @@ $widthDivImg: 700px;
 $widthImg: 660px;
 $heightImg: 371px;
 $auto: auto;
+$viewport-xs: 320;
+$viewport-sm: 576px;
+$viewport-md: 768px;
+$viewport-lg: 992px;
+$viewport-xl: 1200px;
+$viewport-xxl: 1400px;
 
-body {
-}
+
 .container-fluid {
   padding-left: 0px !important;
 }
@@ -29,10 +37,6 @@ header {
   background-color: $softgray;
 }
 
-.col-lg-6 {
-  padding-left: 100px;
-  width: 65%;
-}
 
 .outer-container {
   margin-top: 10px;
@@ -42,14 +46,58 @@ header {
     border-radius: 10px !important;
     border-color: $softgray;
     padding: 50px;
-    background-color: $lightgray !important;
+    background-color: $white!important;
     .img-view {
       text-align: center !important;
-      width: $widthImg ;
-      height: auto ;
+      width: $widthImg !important ;
+      height: $auto !important;
     }
     .info-item {
+      padding-top: 5px;
       text-align: left;
+    }
+  }
+}
+.card-img-right {
+  height: 100%;
+  border-radius: 0 3px 3px 0;
+}
+
+.flex-auto {
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.h-300 {
+  height: 300px;
+}
+@media (min-width: 768px) {
+  .h-md-300 {
+    height: 300px;
+  }
+}
+@media (min-width: 40em) {
+  .blog-title {
+    font-size: 3.5rem;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
+}
+
+@for $delta from 1 to list.length($sizes) {
+  @media (min-width: list.nth($sizes, $delta + 1)) {
+    .col-lg-4{
+      flex: 0 0 auto;
+      width: 33.33333333%;
     }
   }
 }
