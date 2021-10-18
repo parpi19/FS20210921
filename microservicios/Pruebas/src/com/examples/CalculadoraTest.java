@@ -39,6 +39,7 @@ class CalculadoraTest {
 	void testDivideDoubleDouble() {
 		assertEquals(0.5, calc.divide(1.0, 2));;
 		assertThrows(Exception.class, () -> calc.divide(1.0,0));
+		assertEquals(Double.POSITIVE_INFINITY, calc.divide(1.0, 0));
 	}
 
 	@Test
