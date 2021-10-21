@@ -34,6 +34,7 @@ class ValidadoresTest {
 		assertAll("DNI", () -> assertTrue(dni.esDniValido("12345678Z")),
 				() -> assertTrue(dni.esDniValido("12345678z")),
 				() -> assertFalse(dni.esDniValido("12345678A")),
+				() -> assertFalse(dni.isNIF("123456789")),
 				() -> assertThrows(Exception.class, () -> dni.esDniValido(null)), 
 				() -> assertFalse(dni.esDniValido(""))
 		);
@@ -44,6 +45,7 @@ class ValidadoresTest {
 		assertAll("DNI", () -> assertTrue(dni.isNIF("12345678Z")),
 				() -> assertTrue(dni.isNIF("12345678z")),
 				() -> assertFalse(dni.isNIF("12345678A")),
+				() -> assertFalse(dni.isNIF("123456789")),
 				() -> assertThrows(Exception.class, () -> dni.isNIF(null)), 
 				() -> assertFalse(dni.isNIF(""))
 		);
