@@ -14,11 +14,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.domains.contracts.services.ActorService;
+import com.example.domains.contracts.services.CategoryService;
 import com.example.domains.entities.Actor;
+import com.example.domains.entities.Category;
 import com.example.domains.entities.Film;
 import com.example.domains.entities.dtos.ActorDTO;
+import com.example.domains.entities.dtos.CategoryDTO;
 import com.example.domains.entities.dtos.ActorShort;
 import com.example.infraestructure.repositories.ActorRepository;
+import com.example.infraestructure.repositories.CategoryRepository;
 import com.example.ioc.Servicio;
 
 @SpringBootApplication
@@ -38,7 +42,13 @@ public class DemoApplication implements CommandLineRunner {
 	ActorRepository dao;
 	
 	@Autowired
+	CategoryRepository daoC;	
+	
+	@Autowired
 	ActorService srv;
+	
+	@Autowired
+	CategoryRepository srvC;
 	
 	@Override
 	@Transactional
@@ -84,15 +94,15 @@ public class DemoApplication implements CommandLineRunner {
 			// .forEach(System.out::println);
 		// srv.modify(new Actor(333));
 //		srv.getAll().forEach(System.out::println);
-		Actor actor = new Actor (0,"", "12345678Z");
-				if(actor.isInvalid())
-					actor.getErrors().forEach(item -> System.out.println(item.getPropertyPath() + ":" + item.getMessage()));
+		Category category = new Category (0,"Name");
+				if(category.isInvalid())
+					category.getErrors().forEach(item -> System.out.println(item.getPropertyPath() + ":" + item.getMessage()));
 				else {
 					System.out.println("Valido");
 				}
 				
-//				dao.save(actor);
-				srv.add(actor);
+				daoC.save(category);
+//				srvC.add(category);
 	}
 
 }
