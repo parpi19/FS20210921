@@ -16,6 +16,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The persistent class for the film database table.
@@ -42,25 +43,31 @@ public class Film extends EntityBase<Film> implements Serializable {
 	@JsonIgnore
 	private Timestamp lastUpdate;
 
+	@JsonIgnore
 	private int length;
 
+	@JsonIgnore
 	private String rating;
 
+	@JsonIgnore
 	@Column(name = "release_year")
 	private Short releaseYear;
 
+	@JsonIgnore
 	@Column(name = "rental_duration")
 	private byte rentalDuration;
 
+	
 	@Column(name = "rental_rate")
+	@JsonIgnore
 	private BigDecimal rentalRate;
 
+	@JsonIgnore
 	@Column(name = "replacement_cost")
 	private BigDecimal replacementCost;
 
 	@NotBlank
-	@Length(max = 25)
-	@JsonProperty("titulo")
+	@Length(max = 148)
 	private String title;
 
 	// bi-directional many-to-one association to Language
@@ -70,15 +77,18 @@ public class Film extends EntityBase<Film> implements Serializable {
 
 	// bi-directional many-to-one association to Language
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "original_language_id")
 	private Language languageVO;
 
 	// bi-directional many-to-one association to FilmActor
 	@OneToMany(mappedBy = "film")
+	@JsonIgnore
 	private List<FilmActor> filmActors;
 
 	// bi-directional many-to-one association to FilmCategory
 	@OneToMany(mappedBy = "film")
+
 	private List<FilmCategory> filmCategories;
 
 	public Film() {
@@ -87,6 +97,32 @@ public class Film extends EntityBase<Film> implements Serializable {
 	public Film(int filmId) {
 		super();
 		this.filmId = filmId;
+	}
+
+	
+	public Film(@Length(max = 5) int filmId, @NotBlank @Length(max = 25) String title, String description,
+			Language language) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.language = language;
+	}
+	
+	
+
+	public Film(int filmId, @NotBlank @Length(max = 148) String title, String description, Language language,
+			byte rentalDuration, BigDecimal rentalRate, BigDecimal replacementCost,
+			@PastOrPresent Timestamp lastUpdate) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.language = language;
+		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
+		this.replacementCost = replacementCost;
+		this.lastUpdate = lastUpdate;
 	}
 
 	public int getFilmId() {
@@ -227,6 +263,25 @@ public class Film extends EntityBase<Film> implements Serializable {
 		filmCategory.setFilm(null);
 
 		return filmCategory;
+	}
+
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(filmId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Film other = (Film) obj;
+		return filmId == other.filmId;
 	}
 
 	@Override

@@ -1,15 +1,52 @@
-GET http://localhost:8001/params/17?nom=hola
+GET http://localhost:8010/peliculas/
 
-Accept-Language: cristino
-
-###
-
-GET http://localhost:8001/params/12?nom=adios
-Accept-Language: es-es
-Accept: text/xml
+Content-Type: application/json
 
 ###
 
-GET http://localhost:8001/salida
-Accept-Language: es-es
-Accept: text/plain, application/json
+GET http://localhost:8010/categorias/999
+Content-Type: application/json
+
+###
+
+POST http://localhost:8010/peliculas
+Content-Type: application/json
+
+{
+    "title": "PRUEBA",
+    "description": "A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies",
+    "id": 0,
+    "language": {
+      "languageId": 1,
+      "lastUpdate": "2006-02-15",
+      "name": "English"
+    },
+    "rental_duration": 6,
+    "rental_rate": 0.99,
+    "rep_cost": 20.99,
+    "last_update": "2006-02-15T04:03:42.000+00:00"
+  }
+
+###
+
+PUT    http://localhost:8010/peliculas/1001
+Content-Type: application/json
+
+{
+    "title": "NO ES UNA PRUEBA",
+    "description": "A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies",
+    "id": 1001,
+    "language": {
+      "languageId": 1,
+      "lastUpdate": "2006-02-15",
+      "name": "English"
+    },
+    "rental_duration": 6,
+    "rental_rate": 0.99,
+    "rep_cost": 20.99,
+    "last_update": "2006-02-15T04:03:42.000+00:00"
+  }
+
+### 
+
+DELETE http://localhost:8010/peliculas/1001
