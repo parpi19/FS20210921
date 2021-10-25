@@ -11,8 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.example.domains.entities.Actor;
-import com.example.domains.entities.dtos.ActorDTO;
-import com.example.domains.entities.dtos.ActorShort;
+
 
 public interface ActorRepository extends JpaRepository<Actor, Integer> {
 	List<Actor> findByFirstNameStartingWithOrderByLastNameDesc(String prefijo);
