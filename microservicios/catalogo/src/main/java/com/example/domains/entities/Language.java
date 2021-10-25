@@ -2,6 +2,12 @@ package com.example.domains.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
+
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
+import org.hibernate.validator.constraints.Length;
 
 import com.example.domains.core.EntityBase;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -9,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -24,12 +31,17 @@ public class Language extends EntityBase<Language> implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="language_id")
+	@Length(max = 3)
 	private int languageId;
 
 	@Column(name="last_update")
+	@Generated(value = GenerationTime.ALWAYS)
+	@PastOrPresent
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Timestamp lastUpdate;
 
+	@NotBlank
+	@Length(max = 20)
 	private String name;
 
 	//bi-directional many-to-one association to Film
@@ -43,6 +55,17 @@ public class Language extends EntityBase<Language> implements Serializable {
 	private List<Film> filmsVO;
 
 	public Language() {
+	}
+	
+	public Language(int languageId) {
+		super();
+		this.languageId = languageId;
+	}
+
+	public Language(int languageId, String name) {
+		super();
+		this.languageId = languageId;
+		this.name = name;
 	}
 
 	public int getLanguageId() {
@@ -112,5 +135,30 @@ public class Language extends EntityBase<Language> implements Serializable {
 
 		return filmsVO;
 	}
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(languageId);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Language other = (Language) obj;
+		return languageId == other.languageId;
+	}
+
+	@Override
+	public String toString() {
+		return "Language [languageId=" + languageId + ", name=" + name + "]";
+	}
+	
+	
 
 }
