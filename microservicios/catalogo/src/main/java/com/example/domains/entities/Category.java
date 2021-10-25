@@ -3,7 +3,6 @@ package com.example.domains.entities;
 import java.io.Serializable;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 

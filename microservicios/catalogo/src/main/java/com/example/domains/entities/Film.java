@@ -2,8 +2,16 @@ package com.example.domains.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
+
+import org.hibernate.annotations.Generated;
+import org.hibernate.annotations.GenerationTime;
+import org.hibernate.validator.constraints.Length;
 
 import com.example.domains.core.EntityBase;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -22,12 +30,16 @@ public class Film extends EntityBase<Film> implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "film_id")
+	@JsonProperty("id")
 	private int filmId;
 
 	@Lob
 	private String description;
 
-	@Column(name = "last_update")
+	@Column(name="last_update")
+	@Generated(value = GenerationTime.ALWAYS)
+	@PastOrPresent
+	@JsonIgnore
 	private Timestamp lastUpdate;
 
 	private int length;
@@ -46,6 +58,9 @@ public class Film extends EntityBase<Film> implements Serializable {
 	@Column(name = "replacement_cost")
 	private BigDecimal replacementCost;
 
+	@NotBlank
+	@Length(max = 25)
+	@JsonProperty("titulo")
 	private String title;
 
 	// bi-directional many-to-one association to Language
