@@ -1,0 +1,15 @@
+GET http://localhost:8001/params/17?nom=hola
+
+Accept-Language: cristino
+
+###
+
+GET http://localhost:8001/params/12?nom=adios
+Accept-Language: es-es
+Accept: text/xml
+
+###
+
+GET http://localhost:8001/salida
+Accept-Language: es-es
+Accept: text/plain, application/json
