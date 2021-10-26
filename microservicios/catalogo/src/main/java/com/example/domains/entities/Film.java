@@ -124,6 +124,49 @@ public class Film extends EntityBase<Film> implements Serializable {
 		this.replacementCost = replacementCost;
 		this.lastUpdate = lastUpdate;
 	}
+	
+	
+	
+
+	public Film(int filmId, @NotBlank @Length(max = 148) String title, String description,
+			@PastOrPresent Timestamp lastUpdate, String rating, Short releaseYear, byte rentalDuration,
+			BigDecimal rentalRate, BigDecimal replacementCost, Language language, List<FilmActor> filmActors,
+			List<FilmCategory> filmCategories) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.lastUpdate = lastUpdate;
+		this.rating = rating;
+		this.releaseYear = releaseYear;
+		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
+		this.replacementCost = replacementCost;
+		this.language = language;
+		this.filmActors = filmActors;
+		this.filmCategories = filmCategories;
+	}
+
+	public Film(int filmId, @NotBlank @Length(max = 148) String title, String description,
+			@PastOrPresent Timestamp lastUpdate, int length, String rating, Short releaseYear, byte rentalDuration,
+			BigDecimal rentalRate, BigDecimal replacementCost, Language language, Language languageVO,
+			List<FilmActor> filmActors, List<FilmCategory> filmCategories) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.lastUpdate = lastUpdate;
+		this.length = length;
+		this.rating = rating;
+		this.releaseYear = releaseYear;
+		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
+		this.replacementCost = replacementCost;
+		this.language = language;
+		this.languageVO = languageVO;
+		this.filmActors = filmActors;
+		this.filmCategories = filmCategories;
+	}
 
 	public int getFilmId() {
 		return this.filmId;

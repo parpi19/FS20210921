@@ -2,6 +2,8 @@ package com.example.domains.entities.dtos;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import com.example.domains.entities.Film;
 import com.example.domains.entities.Language;
@@ -19,7 +21,7 @@ public class FilmDTO {
 
 	private String description;
 	@JsonProperty("language")
-	private Language language_id; 
+	private int language_id; 
 	
 	@JsonProperty("rental_duration")
 	private byte rentalDuration;
@@ -32,17 +34,25 @@ public class FilmDTO {
 	
 	@JsonProperty("last_update")
 	private Timestamp lastUpdate;
-
+	
+//	@JsonProperty("actors")
+//	private List<Integer>filmActors;
+//	
+//	@JsonProperty("categories")
+//	private List<Integer>filmCategories;
+	
+	
 	public static Film from(FilmDTO source) {
 		return new Film(
 				source.getFilmId(),
 				source.getTitle(),
 				source.getDescription(),
-				source.getLanguage_id(),
+				new Language (source.getLanguage_id()),
 				source.getRentalDuration(),
 				source.getRentalRate(),
 				source.getRepCost(),
 				source.getLastUpdate()
+				
 				
 				);
 	}
@@ -51,11 +61,13 @@ public class FilmDTO {
 				source.getFilmId(),
 				source.getTitle(),
 				source.getDescription(),
-				source.getLanguage(),
+				source.getLanguage().getLanguageId(),
 				source.getRentalDuration(),
 				source.getRentalRate(),
 				source.getReplacementCost(),
 				source.getLastUpdate()
+//				source.getFilmActors().stream().map(item -> item.getActor().getActorID()).collect(Collectors.toList()),
+//				source.getFilmCategories().stream().map(item -> item.getcategory().getCategoryID()).collect(Collectors.toList())
 				);
 	}
 }

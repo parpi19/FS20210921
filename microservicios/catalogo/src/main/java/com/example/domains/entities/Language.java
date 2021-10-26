@@ -31,13 +31,12 @@ public class Language extends EntityBase<Language> implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="language_id")
-	@Length(max = 3)
 	private int languageId;
 
 	@Column(name="last_update")
 	@Generated(value = GenerationTime.ALWAYS)
-	@PastOrPresent
 	@JsonFormat(pattern = "yyyy-MM-dd")
+	@PastOrPresent
 	private Timestamp lastUpdate;
 
 	@NotBlank
@@ -58,9 +57,9 @@ public class Language extends EntityBase<Language> implements Serializable {
 	}
 	
 	public Language(int languageId) {
-		super();
 		this.languageId = languageId;
 	}
+	
 
 	public Language(int languageId, String name) {
 		super();
@@ -75,6 +74,8 @@ public class Language extends EntityBase<Language> implements Serializable {
 	public void setLanguageId(int languageId) {
 		this.languageId = languageId;
 	}
+	
+	
 
 	public Timestamp getLastUpdate() {
 		return this.lastUpdate;

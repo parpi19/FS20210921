@@ -40,6 +40,8 @@ public class FilmActor implements Serializable {
 		this.actor = actor;
 	}
 
+	
+	
 	public FilmActorPK getId() {
 		return this.id;
 	}
