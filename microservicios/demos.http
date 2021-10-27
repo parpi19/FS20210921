@@ -1,10 +1,10 @@
-GET http://localhost:8010/peliculas/
+GET http://localhost:8010/peliculas/2
 
 Content-Type: application/json
 
 ###
 
-GET http://localhost:8010/categorias/999
+GET http://localhost:8010/peliculas/1003
 Content-Type: application/json
 
 ###
@@ -16,11 +16,7 @@ Content-Type: application/json
     "title": "PRUEBA",
     "description": "A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies",
     "id": 0,
-    "language": {
-      "languageId": 1,
-      "lastUpdate": "2006-02-15",
-      "name": "English"
-    },
+    "language": 2,
     "rental_duration": 6,
     "rental_rate": 0.99,
     "rep_cost": 20.99,
@@ -29,18 +25,14 @@ Content-Type: application/json
 
 ###
 
-PUT    http://localhost:8010/peliculas/1001
+PUT    http://localhost:8010/peliculas/1003
 Content-Type: application/json
 
 {
     "title": "NO ES UNA PRUEBA",
     "description": "A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies",
-    "id": 1001,
-    "language": {
-      "languageId": 1,
-      "lastUpdate": "2006-02-15",
-      "name": "English"
-    },
+    "id": 1003,
+    "language": 6,
     "rental_duration": 6,
     "rental_rate": 0.99,
     "rep_cost": 20.99,
@@ -49,4 +41,43 @@ Content-Type: application/json
 
 ### 
 
-DELETE http://localhost:8010/peliculas/1001
+DELETE http://localhost:8010/peliculas/1003
+
+
+### 
+
+GET http://localhost:8010/idioma/2
+
+Content-Type: application/json
+
+### 
+
+GET http://localhost:8010/idioma/
+
+Content-Type: application/json
+
+###
+
+POST http://localhost:8010/idioma
+Content-Type: application/json
+
+{
+    "languageId": 0,
+    "name": "Español"
+  }
+
+
+###
+
+PUT http://localhost:8010/idioma/7
+Content-Type: application/json
+
+{
+    "languageId": 7,
+    "name": "Ruso"
+  }
+
+
+  ### 
+
+DELETE http://localhost:8010/idioma/7
