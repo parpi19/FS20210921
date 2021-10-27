@@ -27,10 +27,13 @@ import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
 
+import io.swagger.annotations.Api;
+
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping(path = "/idioma")
+@RequestMapping(path = "/idiomas")
+@Api(value = "Manteniento de idioma", description = "Permite mantener la lista de idiomas")
 public class LanguageResource {
 	@Autowired
 	LanguageService srv;

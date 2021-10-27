@@ -27,10 +27,13 @@ import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
 
+import io.swagger.annotations.Api;
+
 import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping(path = "/categorias")
+@Api(value = "Manteniento de categorías", description = "Permite mantener la lista de categorías de las peliculas")
 public class CategoryResource {
 	@Autowired
 	CategoryService srv;

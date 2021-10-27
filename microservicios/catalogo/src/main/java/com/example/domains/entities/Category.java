@@ -19,6 +19,8 @@ import com.example.domains.core.EntityBase;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.annotations.ApiModelProperty;
+
 
 /**
  * The persistent class for the category database table.
@@ -40,11 +42,13 @@ public class Category extends EntityBase<Category> implements Serializable {
 	@Generated(value = GenerationTime.ALWAYS)
 	@PastOrPresent
 	@JsonIgnore
+	@ApiModelProperty(name = "Ultima actualización", value = "Ultima actualización")
 	private Timestamp lastUpdate;
 	
 	@NotBlank
 	@Length(max = 25)
 	@JsonProperty("categoria")
+	@ApiModelProperty(name = "Categoria", value = "Nombre de la categoría",required = true)
 	private String name;
 
 	//bi-directional many-to-one association to FilmCategory

@@ -13,6 +13,8 @@ import com.example.domains.core.EntityBase;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
@@ -31,16 +33,19 @@ public class Language extends EntityBase<Language> implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="language_id")
+
 	private int languageId;
 
 	@Column(name="last_update")
 	@Generated(value = GenerationTime.ALWAYS)
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@PastOrPresent
+	@ApiModelProperty(name = "Ultima actualización", value = "Ultima actualización")
 	private Timestamp lastUpdate;
 
 	@NotBlank
 	@Length(max = 20)
+	@ApiModelProperty(name = "Idioma", value = "Idioma",required = true)
 	private String name;
 
 	//bi-directional many-to-one association to Film

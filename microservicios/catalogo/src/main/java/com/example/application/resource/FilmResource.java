@@ -35,10 +35,13 @@ import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
 
+import io.swagger.annotations.Api;
+
 import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping(path = "/peliculas")
+@Api(value = "Manteniento de películas", description = "Permite mantener la lista de películas")
 public class FilmResource {
 	@Autowired
 	FilmService srv;
