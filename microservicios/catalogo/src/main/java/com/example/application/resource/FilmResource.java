@@ -36,6 +36,9 @@ import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 import org.springframework.http.HttpStatus;
 
@@ -46,6 +49,7 @@ public class FilmResource {
 	@Autowired
 	FilmService srv;
 
+	@ApiOperation(value = "Listado de peliculas")
 	@GetMapping
 	public List<FilmDTO> getAll(@RequestParam(required = false) String sort) {
 		if (sort == null)
@@ -80,7 +84,13 @@ public class FilmResource {
 		}
 	}
 
+	@ApiOperation(value = "Añadir una nueva pelicula")
+	@ApiResponses({
+		@ApiResponse(code = 201, message = "Pelicula añadida"),
+		@ApiResponse(code = 404, message = "Pelicula no encontrada")
+	})
 	@PostMapping
+	@ResponseStatus(code = HttpStatus.CREATED)
 	public ResponseEntity<Object> create(@Valid @RequestBody FilmDTO item)
 			throws BadRequestException, DuplicateKeyException, InvalidDataException {
 		if (item == null)
@@ -92,6 +102,11 @@ public class FilmResource {
 
 	}
 
+	@ApiOperation(value = "Modificar una pelicula", notes = "Los identificadores deben coincidir")
+	@ApiResponses({
+		@ApiResponse(code = 200, message = "Pelicula encontrada"),
+		@ApiResponse(code = 404, message = "Pelicula no encontrada")
+	})
 	@PutMapping("/{id}")
 	// @ResponseStatus(HttpStatus.NO_CONTENT)
 	public FilmDTO update(@PathVariable int id, @Valid @RequestBody FilmDTO item)
@@ -103,6 +118,11 @@ public class FilmResource {
 		return FilmDTO.from(srv.modify(FilmDTO.from(item)));
 	}
 
+	@ApiOperation(value = "Borrar una pelicula")
+	@ApiResponses({
+		@ApiResponse(code = 204, message = "Pelicula borrada"),
+		@ApiResponse(code = 404, message = "Pelicula no encontrada")
+	})
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable int id) {
