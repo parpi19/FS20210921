@@ -8,10 +8,17 @@ import javax.transaction.Transactional;
 
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.domains.contracts.services.ActorService;
 import com.example.domains.contracts.services.CategoryService;
@@ -19,7 +26,7 @@ import com.example.domains.entities.Actor;
 import com.example.domains.entities.Category;
 import com.example.domains.entities.Film;
 import com.example.domains.entities.dtos.ActorDTO;
-import com.example.domains.entities.dtos.CategoryDTO;
+import com.example.domains.entities.dtos.Categoria;
 import com.example.domains.entities.dtos.ActorShort;
 import com.example.infraestructure.repositories.ActorRepository;
 import com.example.infraestructure.repositories.CategoryRepository;
@@ -28,6 +35,8 @@ import com.example.ioc.Servicio;
 import springfox.documentation.oas.annotations.EnableOpenApi;
 
 @EnableOpenApi
+@EnableEurekaClient
+@EnableFeignClients("com.example.application.proxies") 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
 
@@ -35,6 +44,19 @@ public class DemoApplication implements CommandLineRunner {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 
+	@Bean
+	@Qualifier("directo")
+	public RestTemplate restTemplateDirecto(RestTemplateBuilder builder) {
+		return builder.build();
+	}
+
+	@Bean
+	@LoadBalanced
+	@Qualifier("balanceado")
+	public RestTemplate restTemplateBalanceado(RestTemplateBuilder builder) {
+		return builder.build();
+	}
+	
 //	@Autowired
 //	Servicio srv;
 //	
