@@ -20,8 +20,6 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -36,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.exceptions.BadRequestException;
 import com.example.exceptions.InvalidDataException;
@@ -84,7 +83,7 @@ public class ContactosResources {
 	static {
 		try {
 			store = (new ObjectMapper()).readValue(
-					new URL("file:C:\\curso\\samples\\webflux-server\\src\\main\\resources\\contactos.json"), 
+					new URL("file:C:\\curso\\FS20210921\\microservicios\\webflux-server\\src\\main\\resources\\contactos.json"), 
 					new TypeReference<List<Contacto>>() {});
 			store.sort((a, b) -> a.getId() - b.getId());
 		} catch (JsonParseException e) {
@@ -107,10 +106,18 @@ public class ContactosResources {
 
 	@GetMapping(path = "/{id}")
 	public Mono<Contacto> getOne(@PathVariable int id) throws NotFoundException {
+			RestTemplate rest = new RestTemplate();
 		var item = store.stream().filter(f -> f.getId() == id).findFirst();
 		if (item.isEmpty())
 			throw new NotFoundException();
-		return Mono.just(item.get()).delayElement(Duration.ofSeconds(1));
+		switch (id) {
+		case 1:
+			return Mono.just(rest.getForObject("http://localhost:4321/api/contactos/1", Contacto.class));
+		case 2:
+			String rslt = rest.getForObject("http://localhost:8001/categorias/1", String.class);
+			break;
+		}
+		return Mono.just(item.get()).delayElement(Duration.ofSeconds(id));
 	}
 
 	@PostMapping

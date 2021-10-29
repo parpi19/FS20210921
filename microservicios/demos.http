@@ -46,13 +46,13 @@ DELETE http://localhost:8010/peliculas/1003
 
 ### 
 
-GET http://localhost:8010/idioma/2
+GET http://localhost:8010/idioma/8
 
 Content-Type: application/json
 
 ### 
 
-GET http://localhost:8010/idioma/
+GET http://localhost:8010/idiomas/
 
 Content-Type: application/json
 
@@ -62,22 +62,22 @@ POST http://localhost:8010/idioma
 Content-Type: application/json
 
 {
-    "languageId": 0,
+    "languageId": 7,
     "name": "Español"
   }
 
 
 ###
 
-PUT http://localhost:8010/idioma/7
+PUT http://localhost:8010/idioma/8
 Content-Type: application/json
 
 {
-    "languageId": 7,
+    "languageId": 8,
     "name": "Ruso"
   }
 
 
-  ### 
+### 
 
-DELETE http://localhost:8010/idioma/7
+DELETE http://localhost:8010/idioma/8
