@@ -1,25 +1,31 @@
-<h1>Información de la pelicula</h1>
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-6">
     <div class="well well-sm">
       <div class="row">
-        <div class="col-sm-6 col-md-4">
-         <h2>{{ VM.Elemento.title }} </h2>
+        <div class="col-sm-6 col-md-12">
+          <h2>{{ VM.Elemento.title }}</h2>
         </div>
-        <div class="col-sm-6 col-md-8">
-          <h4>
-            {{ VM.Elemento.rating }} {{ VM.Elemento.release_year }}
-          </h4>
-          <h5>{{ VM.Elemento.rental_duration }} {{ VM.Elemento.last_update }} {{ VM.Elemento.length }}</h5>
-          <p>{{ VM.Elemento.rental_rate }}{{ VM.Elemento.replacement_cost }}</p>
-          <p>{{ VM.Elemento.language_id }}{{ VM.Elemento.original_language_id }}</p>
-          <p>{{ VM.Elemento.filmActors }}{{ VM.Elemento.filmCategories }}</p>
-          <p>
-            {{ VM.Elemento.description }}
-          </p>
-          <br>
+        <div class="col-sm-6 col-md-12">
+          <div>
+            <b>Año de estreno: </b
+            >{{ VM.Elemento.release_year }}
+          </div>
+          <div><b>Duración: </b> {{ VM.Elemento.length }}'</div>
+          <div><b>Clasificación </b>{{ VM.Elemento.rating }}</div>
+          <div><b>Duración del alquiler </b>{{ VM.Elemento.rental_duration }}</div>
+          <div><b>Calificación </b>{{ VM.Elemento.rental_rate }}</div>
+          <div><b>Precio </b>{{ VM.Elemento.rep_cost }}</div>
+          <div class="card-text mb-auto">
+            {{ VM.Elemento.description | elipsis: 200 }}
+          </div>
+          <br />
           <div class="btn-group">
-            <input class="btn btn-secondary" type="button" value="Volver" (click)="VM.cancel()"/>
+            <input
+              class="btn btn-secondary"
+              type="button"
+              value="Volver"
+              (click)="VM.cancel()"
+            />
           </div>
         </div>
       </div>

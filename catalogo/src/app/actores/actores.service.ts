@@ -14,7 +14,7 @@ import { ModoCRUD } from '../base-code/tipos';
 })
 export class ActoresDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'actores', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
+    super(http, 'actores', { context: new HttpContext().set(AUTH_REQUIRED, true) });
 
   }
 }
@@ -23,7 +23,7 @@ export class ActoresDAOService extends RESTDAOService<any, any> {
   providedIn: 'root',
 })
 export class ActoresViewModelService {
-  protected listURL = '/';
+  protected listURL = '/actores';
 
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];

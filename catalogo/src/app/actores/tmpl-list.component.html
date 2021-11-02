@@ -12,9 +12,9 @@
           </button>
         </div>
         <h4 class="mb-0">
-          <a class="text-dark" [routerLink]="['/blog', item.actorid]">{{item.firstname}}{{item.lastname}}</a>
+          <a class="text-dark" [routerLink]="['/actores', item.id]">{{item.nombre}} {{item.apellidos}}</a>
         </h4>
-        <div class="mb-1 text-muted">{{item.lastupdate | date:'MMM yyyy'}}</div>
+        <div  *ngIf="VM.auth.isAutenticated" class="mb-1 text-muted">{{item.last_update | date:'dd MMMM yyyy'}}</div>
       </div>
     </div>
   </div>

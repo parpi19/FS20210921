@@ -1,2 +1,28 @@
-
-view
+<h1>Información del actor</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+         <h2>{{ VM.Elemento.title }} </h2>
+        </div>
+        <div class="col-sm-6 col-md-12">
+          <h4>
+            {{ VM.Elemento.rating }} {{ VM.Elemento.release_year }}
+          </h4>
+          <h5>{{ VM.Elemento.rental_duration }} {{ VM.Elemento.last_update }} {{ VM.Elemento.length }}</h5>
+          <p>{{ VM.Elemento.rental_rate }}{{ VM.Elemento.replacement_cost }}</p>
+          <p>{{ VM.Elemento.language_id }}{{ VM.Elemento.original_language_id }}</p>
+          <p>{{ VM.Elemento.filmActors }}{{ VM.Elemento.filmCategories }}</p>
+          <p>
+            {{ VM.Elemento.description }}
+          </p>
+          <br>
+          <div class="btn-group">
+            <input class="btn btn-secondary" type="button" value="Volver" (click)="VM.cancel()"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
