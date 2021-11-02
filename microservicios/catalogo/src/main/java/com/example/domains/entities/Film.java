@@ -46,10 +46,8 @@ public class Film extends EntityBase<Film> implements Serializable {
 	@JsonIgnore
 	private int length;
 
-	@JsonIgnore
 	private String rating;
 
-	@JsonIgnore
 	@Column(name = "release_year")
 	private Short releaseYear;
 
@@ -127,6 +125,23 @@ public class Film extends EntityBase<Film> implements Serializable {
 	
 	
 	
+
+	public Film(int filmId, @NotBlank @Length(max = 148) String title, String description, Language language, int length, 
+			Short releaseYear, byte rentalDuration, BigDecimal rentalRate, String rating, BigDecimal replacementCost,
+			@PastOrPresent Timestamp lastUpdate) {
+		super();
+		this.filmId = filmId;
+		this.title = title;
+		this.description = description;
+		this.language = language;
+		this.length = length;
+		this.releaseYear = releaseYear;
+		this.rentalDuration = rentalDuration;
+		this.rentalRate = rentalRate;
+		this.rating = rating;
+		this.replacementCost = replacementCost;
+		this.lastUpdate = lastUpdate;
+	}
 
 	public Film(int filmId, @NotBlank @Length(max = 148) String title, String description,
 			@PastOrPresent Timestamp lastUpdate, String rating, Short releaseYear, byte rentalDuration,
