@@ -16,6 +16,7 @@ import { CommonComponentModule } from './common-component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor,  SecurityModule } from './security';
 import { CatalogoModule } from './catalogo';
+import { ActoresModule } from './actores';
 
 
 
@@ -27,7 +28,9 @@ import { CatalogoModule } from './catalogo';
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
-    AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule, CommonComponentModule, CatalogoModule
+    AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule,
+    CommonComponentModule, CatalogoModule, ActoresModule,
+
   ],
   providers: [
     LoggerService,
