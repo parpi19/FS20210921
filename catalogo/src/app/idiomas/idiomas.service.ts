@@ -4,7 +4,7 @@ import { LoggerService } from 'src/lib/my-core';
 
 import { RESTDAOService } from '../base-code/RESTDAOService';
 import { Router } from '@angular/router';
-import { AUTH_REQUIRED } from '../security';
+import { AuthService, AUTH_REQUIRED } from '../security';
 import { Observable } from 'rxjs';
 import { NavigationService, NotificationService } from '../common-services';
 import { ModoCRUD } from '../base-code/tipos';
@@ -15,7 +15,7 @@ import { ModoCRUD } from '../base-code/tipos';
 })
 export class IdiomasDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'idiomas', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
+    super(http, 'idiomas', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
 }
 
@@ -23,7 +23,7 @@ export class IdiomasDAOService extends RESTDAOService<any, any> {
   providedIn: 'root',
 })
 export class IdiomasViewModelService {
-  protected listURL = '/';
+  protected listURL = '/idiomas';
 
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
@@ -33,9 +33,9 @@ export class IdiomasViewModelService {
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    private navigation: NavigationService,
     protected dao: IdiomasDAOService,
-    protected router: Router
+    protected router: Router,
+    public auth: AuthService,
   ) {}
 
   public get Modo(): ModoCRUD {

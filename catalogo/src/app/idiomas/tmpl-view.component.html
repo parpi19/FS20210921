@@ -1,2 +1,17 @@
+<h1>Información del idioma</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="well well-sm">
+      <div class="row">
+        <div class="col-sm-6 col-md-12">
+         <h2>{{ VM.Elemento.name }} </h2>
+         <p><b>Última modificación:</b> {{VM.Elemento.lastUpdate | date:'dd MMMM yyyy OOOO'}} </p>
 
-view IDIOMAS
+          <div class="btn-group">
+            <input class="btn btn-secondary" type="button" value="Volver" (click)="VM.cancel()"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
