@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor,  SecurityModule } from './security';
 import { CatalogoModule } from './catalogo';
 import { ActoresModule } from './actores';
+import { CategoriasModule } from './categorias';
 
 
 
@@ -29,7 +30,7 @@ import { ActoresModule } from './actores';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule,
-    CommonComponentModule, CatalogoModule, ActoresModule,
+    CommonComponentModule, CatalogoModule, ActoresModule, CategoriasModule,
 
   ],
   providers: [
