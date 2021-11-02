@@ -4,7 +4,7 @@ import { LoggerService } from 'src/lib/my-core';
 
 import { RESTDAOService } from '../base-code/RESTDAOService';
 import { Router } from '@angular/router';
-import { AUTH_REQUIRED } from '../security';
+import { AuthService, AUTH_REQUIRED } from '../security';
 import { Observable } from 'rxjs';
 import { NavigationService, NotificationService } from '../common-services';
 import { ModoCRUD } from '../base-code/tipos';
@@ -15,7 +15,7 @@ import { ModoCRUD } from '../base-code/tipos';
 })
 export class CategoriasDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, '', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
+    super(http, 'categorias', { context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
   page(page: number, rows: number = 20): Observable<{ page: number, pages: number, rows: number, list: Array<any> }> {
     return new Observable(subscriber => {
@@ -39,19 +39,20 @@ export class CategoriasDAOService extends RESTDAOService<any, any> {
   providedIn: 'root',
 })
 export class CategoriasViewModelService {
-  protected listURL = '/';
+  protected listURL = '/categorias';
 
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
 
+
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    private navigation: NavigationService,
     protected dao: CategoriasDAOService,
-    protected router: Router
+    protected router: Router,
+    public auth: AuthService,
   ) {}
 
   public get Modo(): ModoCRUD {
