@@ -6,6 +6,7 @@ import { MyCoreModule } from 'src/lib/my-core';
 import { CommonServicesModule } from '../common-services';
 import { IDIOMAS_COMPONENTES } from './componente.component';
 import { CommonComponentModule } from '../common-component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { CommonComponentModule } from '../common-component';
   imports: [
     CommonModule, FormsModule, RouterModule.forChild([]),
     MyCoreModule, CommonServicesModule,
-    CommonComponentModule, MyCoreModule,
+    CommonComponentModule, MyCoreModule, NgxPaginationModule,
   ]
 })
 export class IdiomasModule { }
