@@ -15,23 +15,7 @@ import { ModoCRUD } from '../base-code/tipos';
 })
 export class IdiomasDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, '', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
-  }
-  page(page: number, rows: number = 20): Observable<{ page: number, pages: number, rows: number, list: Array<any> }> {
-    return new Observable(subscriber => {
-      this.http.get<{ pages: number, rows: number }>(`${this.baseUrl}?_page=count&_rows=${rows}`, this.option)
-        .subscribe(
-          data => {
-            if (page >= data.pages) page = data.pages > 0 ? data.pages - 1 : 0;
-            this.http.get<Array<any>>(`${this.baseUrl}?_page=${page}&_rows=${rows}&_sort=nombre`, this.option)
-              .subscribe(
-                lst => subscriber.next({ page, pages: data.pages, rows: data.rows, list: lst }),
-                err => subscriber.error(err)
-              )
-          },
-          err => subscriber.error(err)
-        )
-    })
+    super(http, 'idiomas', { withCredentials: true, context: new HttpContext().set(AUTH_REQUIRED, true) });
   }
 }
 

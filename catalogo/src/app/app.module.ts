@@ -15,10 +15,10 @@ import { CommonServicesModule } from './common-services';
 import { CommonComponentModule } from './common-component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor,  SecurityModule } from './security';
-import { CatalogoModule } from './catalogo';
 import { ActoresModule } from './actores';
 import { CategoriasModule } from './categorias';
 import { IdiomasModule } from './idiomas';
+import { PeliculasModule } from './peliculas';
 
 
 
@@ -31,7 +31,7 @@ import { IdiomasModule } from './idiomas';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule,
-    CommonComponentModule, CatalogoModule, ActoresModule, CategoriasModule, IdiomasModule
+    CommonComponentModule, ActoresModule, CategoriasModule, IdiomasModule, PeliculasModule,
 
   ],
   providers: [
