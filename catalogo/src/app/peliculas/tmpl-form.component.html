@@ -1,0 +1,81 @@
+<h1>Añadir pelicula al registro</h1>
+<form #miForm="ngForm">
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label class="form-label" for="filmid"><b>Código pelicula: </b></label>
+      <input class="form-control"[class.is-invalid]="filmid.invalid && miForm.dirty" type="number"name="filmid" id="filmid" [(ngModel)]="VM.Elemento.filmid" #filmid="ngModel" required min="0"/>
+      <output class="invalid-feedback" [myShowErrors]="filmid.errors"></output>
+    </div>
+    <div class="form-group col-md-4">
+      <label class="form-label" for="title"><b>Título: </b></label>
+      <input class="form-control" [class.is-invalid]="title.invalid" type="text" name="title" id="title" [(ngModel)]="VM.Elemento.title" #title="ngModel" required minlength="2" maxlength="50"/>
+      <output class="invalid-feedback" [myShowErrors]="title.errors"></output>
+    </div>
+    <div class="form-group col-md-4">
+      <label class="form-label" for="release_year"><b>Año de salida: </b></label>
+      <input class="form-control" [class.is-invalid]="release_year.invalid" type="date" name="release_year" id="release_year" [(ngModel)]="VM.Elemento.release_year" #release_year="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="release_year.errors"></output>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label class="form-label" for="last_update"><b>Ultima modificación: </b></label>
+      <input class="form-control" type="date" name="last_update" id="last_update" [(ngModel)]="VM.Elemento.last_update" #last_update="ngModel"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="form-group col-md-2">
+      <label class="form-label" for="length"><b>Duración: </b></label>
+      <input class="form-control" type="number" name="length" id="length" [(ngModel)]="VM.Elemento.length" #length="ngModel"/>
+    </div>
+    <div class="form-group col-md-12">
+      <label class="form-label" for="rating"><b>Califcación: </b></label>
+      <input class="form-control" type="text" name="rating" id="rating" [(ngModel)]="VM.Elemento.rating" #rating="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="rating.errors"></output>
+    </div>
+    <div class="form-group col-md-12">
+      <label class="form-label" for="rental_duration"><b>Duración del alquiler: </b></label>
+      <input class="form-control" type="number" name="rental_duration" id="rental_duration" [(ngModel)]="VM.Elemento.rental_duration" #rental_duration="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="rental_duration.errors"></output>
+    </div>
+    <div class="form-group col-md-12">
+      <label class="form-label" for="rental_rate"><b>Ratio de alquiler: </b></label>
+      <input class="form-control" type="number" name="rental_rate" id="rental_rate" [(ngModel)]="VM.Elemento.rental_rate" #rental_rate="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="rental_rate.errors"></output>
+    </div>
+    <div class="form-group col-md-12">
+      <label class="form-label" for="replacement_cost"><b>Coste: </b></label>
+      <input class="form-control" type="number" name="replacement_cost" id="replacement_cost" [(ngModel)]="VM.Elemento.replacement_cost" #replacement_cost="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="replacement_cost.errors"></output>
+    </div>
+    <div class="form-group col-md-12">
+      <label class="form-label" for="language"><b>Idioma: </b></label>
+      <input class="form-control" type="number" name="language" id="language" [(ngModel)]="VM.Elemento.language" #language="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="language.errors"></output>
+    </div>
+    <div class="form-group col-md-12">
+      <label class="form-label" for="original_language_id"><b>Idioma original: </b></label>
+      <input class="form-control" type="number" name="original_language_id" id="original_language_id" [(ngModel)]="VM.Elemento.original_language_id" #original_language_id="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="original_language_id.errors"></output>
+    </div>
+    <div class="form-group col-md-12">
+      <label class="form-label" for="filmActors"><b>Actores: </b></label>
+      <input class="form-control" type="number" name="filmActors" id="filmActors" [(ngModel)]="VM.Elemento.filmActors" #filmActors="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="filmActors.errors"></output>
+    </div>
+    <div class="form-group col-md-12">
+      <label class="form-label" for="filmCategories"><b>Categorias: </b></label>
+      <input class="form-control" type="number" name="filmCategories" id="filmCategories" [(ngModel)]="VM.Elemento.filmCategories" #filmCategories="ngModel"/>
+      <output class="invalid-feedback" [myShowErrors]="filmCategories.errors"></output>
+    </div>
+    <div class="form-group col-md-2">
+      <label class="form-label" for="description"><b>Descripción: </b></label>
+      <textarea [class.is-invalid]="description.invalid" type="text" name="description" id="description" [(ngModel)]="VM.Elemento.description" #description="ngModel" maxlength="1000" rows="20" cols="160"></textarea>
+      <output class="invalid-feedback" [myShowErrors]="description.errors"></output>
+    </div>
+  </div>
+  <div class="form-group">
+  <br>
+  <app-form-buttons (send)="VM.send()" [send-disabled]="miForm.invalid" (cancel)="VM.cancel()"></app-form-buttons>
+  </div>
+</form>

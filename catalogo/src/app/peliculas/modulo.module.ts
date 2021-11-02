@@ -4,21 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MyCoreModule } from 'src/lib/my-core';
 import { CommonServicesModule } from '../common-services';
-import { ACTORES_COMPONENTES } from './componente.component';
-import { CommonComponentModule } from '../common-component';
+import { PELICULAS_COMPONENTES } from './componente.component';
+import { CommonComponentModule } from '../common-component/common-component.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
-    ACTORES_COMPONENTES,
+    PELICULAS_COMPONENTES,
   ],
   exports: [
-    ACTORES_COMPONENTES,
+    PELICULAS_COMPONENTES,
   ],
   imports: [
     CommonModule, FormsModule, RouterModule.forChild([]),
-    MyCoreModule, CommonServicesModule,
-    CommonComponentModule, MyCoreModule, NgxPaginationModule,
+    MyCoreModule, CommonServicesModule, CommonComponentModule, NgxPaginationModule,
   ]
 })
-export class ActoresModule { }
+export class PeliculasModule { }

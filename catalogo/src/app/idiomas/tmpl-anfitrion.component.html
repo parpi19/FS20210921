@@ -1,0 +1,7 @@
+<ng-container [ngSwitch]="VM.Modo" >
+  <app-idiomas-add *ngSwitchCase="'add'"></app-idiomas-add>
+  <app-idiomas-edit *ngSwitchCase="'edit'"></app-idiomas-edit>
+  <app-idiomas-view *ngSwitchCase="'view'"></app-idiomas-view>
+  <app-idiomas-list *ngSwitchDefault></app-idiomas-list>
+ </ng-container>
+

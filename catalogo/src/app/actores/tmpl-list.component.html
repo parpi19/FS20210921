@@ -1,1 +1,23 @@
-list actores
+<h1>Listado de Actores <input *ngIf="VM.auth.isAutenticated" class="fas fa-plus" type="button" value="Añadir" routerLink="add"></h1>
+<div class="row mb-2">
+  <div class="col-md-6" *ngFor="let item of VM.Listado | paginate: { itemsPerPage: 6, currentPage: page }">
+    <div class="card flex-md-row mb-4 box-shadow h-md-250">
+      <div class="card-body d-flex flex-column align-items-start">
+        <div class="btn-group" role="group">
+          <button *ngIf="VM.auth.isAutenticated" class="btn btn-success" [routerLink]="[item.actorid, 'edit']">
+            <i class="fas fa-pen"></i>
+          </button>
+          <button *ngIf="VM.auth.isAutenticated" class="btn btn-danger" (click)="VM.delete(item.actorid)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+        </div>
+        <h4 class="mb-0">
+          <a class="text-dark" [routerLink]="['/blog', item.actorid]">{{item.firstname}}{{item.lastname}}</a>
+        </h4>
+        <div class="mb-1 text-muted">{{item.lastupdate | date:'MMM yyyy'}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente">
+</pagination-controls>

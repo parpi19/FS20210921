@@ -18,6 +18,7 @@ import { AuthInterceptor,  SecurityModule } from './security';
 import { CatalogoModule } from './catalogo';
 import { ActoresModule } from './actores';
 import { CategoriasModule } from './categorias';
+import { IdiomasModule } from './idiomas';
 
 
 
@@ -30,7 +31,7 @@ import { CategoriasModule } from './categorias';
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
     AppRoutingModule, MyCoreModule, MainModule, SecurityModule, CommonServicesModule,
-    CommonComponentModule, CatalogoModule, ActoresModule, CategoriasModule,
+    CommonComponentModule, CatalogoModule, ActoresModule, CategoriasModule, IdiomasModule
 
   ],
   providers: [

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { CategoriasViewModelService } from './categorias.service';
 
-describe('CatalogoViewModelService', () => {
+describe('CategoriasViewModelService', () => {
   let service: CategoriasViewModelService;
 
   beforeEach(() => {
