@@ -5,7 +5,7 @@ import { PeliculasViewModelService } from './peliculas.service';
 @Component({
   selector: 'app-peliculas',
   templateUrl: './tmpl-anfitrion.component.html',
-  styleUrls: ['./peliculas.component.scss'],
+  styleUrls: ['./componente.component.scss'],
 })
 export class PeliculasComponent implements OnInit {
   constructor(protected vm: PeliculasViewModelService) {}
@@ -20,7 +20,7 @@ export class PeliculasComponent implements OnInit {
 @Component({
   selector: 'app-peliculas-list',
   templateUrl: './tmpl-list.component.html',
-  styleUrls: ['./peliculas.component.scss'],
+  styleUrls: ['./componente.component.scss'],
 })
 export class PeliculasListComponent implements OnInit {
   public page: number = 0;
@@ -35,7 +35,7 @@ export class PeliculasListComponent implements OnInit {
 @Component({
   selector: 'app-peliculas-add',
   templateUrl: './tmpl-form.component.html',
-  styleUrls: ['./peliculas.component.scss'],
+  styleUrls: ['./componente.component.scss'],
 })
 export class PeliculasAddComponent implements OnInit {
   constructor(protected vm: PeliculasViewModelService) {}
@@ -49,7 +49,7 @@ export class PeliculasAddComponent implements OnInit {
 @Component({
   selector: 'app-peliculas-edit',
   templateUrl: './tmpl-form.component.html',
-  styleUrls: ['./peliculas.component.scss'],
+  styleUrls: ['./componente.component.scss'],
 })
 export class PeliculasEditComponent implements OnInit, OnDestroy {
   private obs$: any;
@@ -78,7 +78,7 @@ export class PeliculasEditComponent implements OnInit, OnDestroy {
 @Component({
   selector: 'app-peliculas-view',
   templateUrl: './tmpl-view.component.html',
-  styleUrls: ['./peliculas.component.scss'],
+  styleUrls: ['./componente.component.scss'],
 })
 export class PeliculasViewComponent implements OnInit, OnDestroy {
   private obs$: any;
